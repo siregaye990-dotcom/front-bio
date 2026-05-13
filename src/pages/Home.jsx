@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FiArrowRight, FiShoppingCart } from 'react-icons/fi'
-import { FaLeaf, FaTruck, FaStar } from 'react-icons/fa'
+import { FaLeaf, FaTruck, FaStar, FaWhatsapp } from 'react-icons/fa'
 import { GiWheat, GiMortar } from 'react-icons/gi'
 import { MdBolt } from 'react-icons/md'
 import LOGO_B64    from '../assets/logo_b64'
