@@ -1,0 +1,32 @@
+/* src/components/WAFloat.module.css */
+.float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 500;
+  width: 58px; height: 58px; background: #25D366; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 20px rgba(37,211,102,.4);
+  transition: transform .3s, box-shadow .3s;
+  text-decoration: none;
+  animation: waFloat 3s ease-in-out infinite;
+}
+.float:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 8px 28px rgba(37,211,102,.55);
+  animation: none;
+}
+@keyframes waFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-7px); }
+}
+.tooltip {
+  position: absolute; right: 68px; top: 50%; transform: translateY(-50%);
+  background: var(--dark); color: #fff;
+  font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 500;
+  padding: 7px 13px; border-radius: 7px;
+  white-space: nowrap; opacity: 0; pointer-events: none;
+  transition: opacity .2s;
+}
+.float:hover .tooltip { opacity: 1; }
+
+@media (max-width: 480px) {
+  .float { bottom: 16px; right: 16px; width: 50px; height: 50px; }
+}

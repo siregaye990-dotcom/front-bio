@@ -1,0 +1,62 @@
+/* src/pages/admin/AdminLogin.module.css */
+.page {
+  min-height: 80vh; display: flex; align-items: center; justify-content: center;
+  padding: 2rem 1.5rem;
+}
+.card {
+  background: #fff; border-radius: var(--radius-lg);
+  border: 1.5px solid rgba(0,0,0,.07);
+  padding: 2.4rem; width: 100%; max-width: 380px;
+  text-align: center; box-shadow: var(--shadow-lg);
+}
+.logoWrap { margin-bottom: 1.1rem; }
+.logoCircle {
+  width: 68px; height: 68px; border-radius: 50%; background: var(--dark);
+  margin: 0 auto; display: flex; align-items: center; justify-content: center;
+}
+.title {
+  font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700;
+  color: var(--text); margin-bottom: .3rem;
+}
+.title em { color: var(--green); font-style: normal; }
+.sub { font-size: 12px; color: var(--muted); margin-bottom: 1.8rem; }
+.error {
+  color: var(--red); font-size: 11px; margin-bottom: .8rem;
+  background: #fde8e8; padding: 10px; border-radius: 6px; text-align: left;
+}
+.form { text-align: left; }
+.fg { margin-bottom: .9rem; }
+.fg label {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 10px; font-weight: 600; color: var(--text);
+  margin-bottom: .3rem; letter-spacing: .04em; text-transform: uppercase;
+}
+.fg input {
+  width: 100%; padding: 11px 13px;
+  border: 1.5px solid rgba(0,0,0,.1); border-radius: 7px;
+  font-size: 13px; font-family: inherit; outline: none; color: var(--text);
+  transition: all .2s;
+}
+.fg input:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(26,107,53,.08); }
+.pwdWrap { position: relative; }
+.pwdWrap input { padding-right: 40px; }
+.eyeBtn {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; cursor: pointer; color: var(--muted);
+  display: flex; align-items: center;
+}
+.loginBtn {
+  width: 100%; background: var(--dark); color: #fff; border: none;
+  padding: 12px; border-radius: 7px;
+  font-family: 'Jost', sans-serif; font-size: 12px; font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase; cursor: pointer;
+  transition: background .2s; display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin-top: .5rem;
+}
+.loginBtn:hover:not(:disabled) { background: var(--green); }
+.loginBtn:disabled { opacity: .6; cursor: not-allowed; }
+.hint {
+  margin-top: 1.2rem; font-size: 10px; color: var(--muted);
+  background: var(--cream); padding: 10px 12px; border-radius: 7px; text-align: left;
+  line-height: 1.8;
+}

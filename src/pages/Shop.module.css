@@ -1,0 +1,100 @@
+/* src/pages/Shop.module.css */
+.page { max-width: 1080px; margin: 0 auto; padding: 2.5rem 1.5rem 3rem; }
+.header { margin-bottom: 1.8rem; }
+.eyebrow { font-size: 10px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: .45rem; }
+.title { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 700; color: var(--text); margin-bottom: .3rem; }
+.subtitle { font-size: 13px; font-weight: 300; color: var(--muted); }
+.layout { display: grid; grid-template-columns: 1fr 340px; gap: 1.8rem; align-items: start; }
+.products { display: flex; flex-direction: column; gap: 1.4rem; }
+.filterBar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-bottom: 1rem; align-items: center; }
+.filterPills { display: flex; flex-wrap: wrap; gap: 8px; }
+.filterPill { padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(0,0,0,.1); background: #fff; color: var(--text); font-size: 11px; cursor: pointer; transition: all .2s; }
+.filterPill:hover { border-color: rgba(0,0,0,.16); }
+.filterPillActive { border-color: var(--green); background: var(--green-3); color: var(--green); }
+.sortRow { display: flex; align-items: center; gap: 10px; }
+.sortLabel { font-size: 11px; color: var(--muted); font-weight: 600; }
+.sortSelect { padding: 9px 10px; border-radius: 10px; border: 1.5px solid rgba(0,0,0,.1); background: #fff; color: var(--text); font-size: 12px; outline: none; transition: border-color .2s; }
+.sortSelect:focus { border-color: var(--green); }
+.card { background: #fff; border-radius: var(--radius-lg); border: 1.5px solid rgba(0,0,0,.06); display: flex; overflow: hidden; transition: all .25s; box-shadow: var(--shadow-sm); }
+.card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+.grid { display: grid; gap: 1.4rem; }
+.emptyShop { text-align: center; padding: 2rem; border: 1px dashed rgba(0,0,0,.12); border-radius: 16px; background: #fbfcfb; color: var(--muted); font-size: 13px; }
+.cardImg { width: 210px; flex-shrink: 0; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 220px; }
+.bg0 { background: linear-gradient(135deg,#d4ead9,#b8ddc5); }
+.bg1 { background: linear-gradient(135deg,#fdf5dc,#f2e0a0); }
+.bg2 { background: linear-gradient(135deg,#dff0e2,#a8d9b4); }
+.imgPlaceholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .4rem; text-align: center; padding: 1rem; }
+.imgLabel { font-size: 11px; color: rgba(0,0,0,.35); font-style: italic; }
+.badge { position: absolute; top: 12px; left: 12px; font-size: 9px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; color: #fff; }
+.badge0 { background: var(--green); }
+.badge1 { background: var(--gold); color: var(--dark); }
+.badge2 { background: var(--earth); }
+.detailLink { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); background: rgba(13,36,16,.92); color: #fff; border-radius: 999px; padding: 7px 14px; font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; opacity: 0; transition: opacity .25s, transform .25s; font-family: 'Jost',sans-serif; }
+.card:hover .detailLink { opacity: 1; transform: translateX(-50%) translateY(-2px); }
+.cardBody { padding: 1.4rem 1.6rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.tag { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; margin-bottom: .8rem; }
+.tag0 { background: var(--green-3); color: var(--green); }
+.tag1 { background: var(--gold-3); color: #8a6010; }
+.tag2 { background: var(--earth-3); color: #7a4a10; }
+.prodName { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: .4rem; line-height: 1.05; }
+.prodDesc { font-size: 12px; font-weight: 300; color: var(--muted); line-height: 1.85; margin-bottom: 1rem; }
+.fmtLabel { font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: .5rem; }
+.fmtBtns { display: flex; gap: 10px; margin-bottom: 1rem; flex-wrap: wrap; }
+.fmtBtn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 10px; border: 1.5px solid rgba(0,0,0,.1); background: #fff; cursor: pointer; transition: all .2s; }
+.fmtBtn:hover { border-color: rgba(0,0,0,.16); }
+.fmtActive0 { border-color: var(--green) !important; background: var(--green-3) !important; }
+.fmtActive1 { border-color: var(--gold) !important; background: var(--gold-3) !important; }
+.fmtActive2 { border-color: var(--earth) !important; background: var(--earth-3) !important; }
+.radio { width: 14px; height: 14px; border-radius: 50%; border: 2px solid rgba(0,0,0,.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.radioDot { width: 6px; height: 6px; border-radius: 50%; background: transparent; transition: background .2s; }
+.dot0 { background: var(--green); } .dot1 { background: var(--gold); } .dot2 { background: var(--earth); }
+.fmtSize { font-size: 12px; font-weight: 700; color: var(--text); }
+.fmtPrice { font-size: 12px; font-weight: 700; }
+.green { color: var(--green); } .gold { color: var(--gold); } .earth { color: var(--earth); }
+.stockRow { margin-bottom: .9rem; }
+.inStock { font-size: 10px; padding: 4px 11px; border-radius: 999px; font-weight: 700; background: var(--green-3); color: var(--green); display: inline-flex; align-items: center; gap: 5px; }
+.addRow { display: flex; align-items: center; gap: 10px; }
+.qtyCtrl { display: flex; align-items: center; border: 1.5px solid rgba(0,0,0,.1); border-radius: 10px; overflow: hidden; }
+.qtyBtn { width: 36px; height: 36px; background: #fff; border: none; font-size: 16px; cursor: pointer; color: var(--text); display: flex; align-items: center; justify-content: center; transition: background .15s; }
+.qtyBtn:hover { background: #f6f2ec; }
+.qtyVal { width: 36px; text-align: center; font-size: 13px; font-weight: 600; color: var(--text); }
+.addBtn { flex: 1; height: 38px; border: none; border-radius: 10px; font-family: 'Jost',sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; color: #fff; transition: all .25s; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.addBtn:hover { opacity: .95; transform: translateY(-1px); }
+.addBtn0 { background: var(--green); } .addBtn1 { background: var(--gold); color: var(--dark); } .addBtn2 { background: var(--earth); }
+.addBtnAdded { filter: brightness(1.05); }
+
+/* CART */
+.cartSide { background: #fff; border-radius: var(--radius-lg); border: 1.5px solid rgba(0,0,0,.06); padding: 1.6rem; position: sticky; top: 88px; box-shadow: var(--shadow-sm); }
+.cartHeader { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; padding-bottom: .9rem; border-bottom: 1px solid rgba(0,0,0,.06); }
+.cartTitle { font-family: 'Cormorant Garamond',serif; font-size: 23px; font-weight: 700; color: var(--text); }
+.clearBtn { font-size: 10px; color: var(--muted); cursor: pointer; border: none; background: none; font-family: inherit; text-decoration: underline; }
+.cartItems { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.1rem; }
+.cartEmpty { text-align: center; padding: 1.5rem 0; color: var(--muted); font-size: 11px; font-style: italic; }
+.cartItem { display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: var(--green-3); border-radius: 10px; animation: slideIn .2s ease; }
+@keyframes slideIn { from { opacity:0; transform:translateX(-8px); } to { opacity:1; transform:translateX(0); } }
+.itemDot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.itemInfo { flex: 1; min-width: 0; }
+.itemName { font-size: 12px; font-weight: 600; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.itemSize { font-size: 10px; color: var(--muted); }
+.itemQty { display: flex; align-items: center; gap: 4px; }
+.iqBtn { width: 18px; height: 18px; border: 1px solid rgba(0,0,0,.1); border-radius: 4px; background: #fff; font-size: 11px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text); }
+.iqVal { font-size: 10px; font-weight: 600; width: 18px; text-align: center; color: var(--text); }
+.itemPrice { font-size: 11px; font-weight: 700; min-width: 65px; text-align: right; color: var(--green); }
+.removeBtn { background: none; border: none; cursor: pointer; color: #ccc; font-size: 12px; transition: color .15s; }
+.removeBtn:hover { color: var(--red); }
+.totals { border-top: 1px solid rgba(0,0,0,.06); padding-top: 1rem; margin-bottom: 1.2rem; }
+.totRow { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-bottom: 5px; }
+.totGrand { font-size: 15px; font-weight: 700; color: var(--text); margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,.08); }
+.totVal { color: var(--green); font-size: 16px; }
+.checkoutBtn { width: 100%; background: var(--green); color: #fff; border-radius: 12px; padding: 14px; font-family: 'Jost',sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; margin-bottom: 10px; transition: all .2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
+.checkoutBtn:hover { background: #1f7b3c; transform: translateY(-1px); }
+.secureNote { text-align: center; font-size: 10px; color: var(--muted); display: flex; align-items: center; justify-content: center; gap: 7px; margin-bottom: .9rem; }
+.waAlt { display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(37,211,102,.1); color: #25D366; border: 1px solid rgba(37,211,102,.25); padding: 11px; border-radius: 12px; font-family: 'Jost',sans-serif; font-size: 10px; font-weight: 700; text-decoration: none; transition: all .2s; }
+.waAlt:hover { background: #25D366; color: #fff; }
+
+@media (max-width: 768px) {
+  .layout { grid-template-columns: 1fr; }
+  .cartSide { position: static; top: auto; }
+  .card { flex-direction: column; }
+  .cardImg { width: 100%; height: 240px; }
+}
