@@ -1,1 +1,3 @@
 ﻿const isPhone = (str) => /^+?[0-9s-()]{8,}$/.test(str.replace(/s/g, ''))
+const isPhone = (str) => /^+?[0-9s-()]{8,}$/.test(str.replace(/s/g, ''))
+const isPhone = (str) => /^+?[0-9s-()]{8,}$/.test(str.replace(/s/g, ''))
