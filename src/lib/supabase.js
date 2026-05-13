@@ -8,10 +8,27 @@ import { PRODUCTS } from '../utils/products'
 
 const SUPABASE_URL = process.env.REACT_APP_SUPABASE_URL || 'https://VOTRE-PROJET.supabase.co'
 const SUPABASE_ANON_KEY = process.env.REACT_APP_SUPABASE_ANON_KEY || 'votre-anon-key'
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:10000'
 
 const isSupabaseConfigured = SUPABASE_URL !== 'https://VOTRE-PROJET.supabase.co' && SUPABASE_ANON_KEY !== 'votre-anon-key'
 
 export const supabase = isSupabaseConfigured ? createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null
+
+// ─── HELPER POUR L'API BACKEND ────────────────────────────────────────────────
+export const backendApi = {
+  async get(endpoint) {
+    const res = await fetch(`${API_URL}${endpoint}`)
+    return res.json()
+  },
+  async post(endpoint, body) {
+    const res = await fetch(`${API_URL}${endpoint}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    })
+    return res.json()
+  }
+}
 
 // ─── ORDERS ───────────────────────────────────────────────────────────────────
 
