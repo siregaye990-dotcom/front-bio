@@ -25,13 +25,13 @@
 }
 
 .heroLogoTop {
-  width: 250px; /* Taille augmentée encore une fois */
+  width: 320px; /* Taille augmentée à 320px */
   height: auto;
-  margin-bottom: 2.5rem; /* Espace augmenté pour équilibrer la taille */
+  margin-bottom: 3rem; /* Espace augmenté pour équilibrer la grande taille */
   opacity: 1;
   border-radius: 50%;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 20px 45px rgba(0,0,0,0.35);
+  box-shadow: 0 25px 55px rgba(0,0,0,0.4);
 }
 
 .heroLogoTop:hover {
