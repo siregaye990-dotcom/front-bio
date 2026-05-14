@@ -27,7 +27,7 @@
 .heroLogoTop {
   width: 320px; /* Taille augmentée à 320px */
   height: auto;
-  margin-bottom: 3rem; /* Espace augmenté pour équilibrer la grande taille */
+  margin-bottom: 4rem; /* Augmentation de l'espace pour donner plus "d'air" */
   opacity: 1;
   border-radius: 50%;
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
