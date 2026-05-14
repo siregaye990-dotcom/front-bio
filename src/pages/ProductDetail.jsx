@@ -8,13 +8,15 @@ import { GiAfrica } from 'react-icons/gi'
 import toast from 'react-hot-toast'
 import { PRICES } from '../utils/products'
 import { useCart } from '../context/CartContext'
+import { useCurrency } from '../context/CurrencyContext'
 import useProducts from '../hooks/useProducts'
 import styles from './ProductDetail.module.css'
 
 export default function ProductDetail() {
   const { slug } = useParams()
-  const navigate  = useNavigate()
+  const navigate = useNavigate()
   const { addItem } = useCart()
+  const { getPrice, formatPrice } = useCurrency()
   const { products, loading } = useProducts()
 
   const [selSize, setSelSize] = useState('500g')
@@ -173,7 +175,7 @@ export default function ProductDetail() {
                     <div>
                       <div className={styles.fmtSize}>{size}</div>
                       <div className={styles.fmtPrice} style={{ color: product.color }}>
-                        {price.toLocaleString('fr-FR')} FCFA
+                        {getPrice(price)}
                       </div>
                     </div>
                   </label>
@@ -193,7 +195,7 @@ export default function ProductDetail() {
             <div className={styles.totalRow}>
               <span>Total</span>
               <span className={styles.totalVal} style={{ color: product.color }}>
-                {(PRICES[selSize] * qty).toLocaleString('fr-FR')} FCFA
+                {formatPrice(PRICES[selSize] * qty)}
               </span>
             </div>
 

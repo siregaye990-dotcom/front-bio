@@ -5,6 +5,7 @@ import { FiShoppingCart, FiSearch, FiUser, FiLogOut } from 'react-icons/fi'
 import { useCart } from '../context/CartContext'
 import { useAuth } from '../context/AuthContext'
 import { useClientAuth } from '../context/ClientAuthContext'
+import CurrencySelector from './CurrencySelector'
 import ClientAuthModal from './ClientAuthModal'
 import LOGO_B64 from '../assets/logo_b64'
 import styles from './Navbar.module.css'
@@ -37,6 +38,7 @@ export default function Navbar() {
         {showAdmin && <Link to="/admin"    className={`${styles.tab} ${isActive('/admin')    ? styles.active : ''}`}>Admin</Link>}
       </div>
       <div className={styles.actions}>
+        <CurrencySelector />
         <button className={styles.trackPill} onClick={() => navigate('/suivi')}>
           <FiSearch size={12}/> Suivre ma commande
         </button>

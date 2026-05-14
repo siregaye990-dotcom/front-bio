@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast'
 import { CartProvider }       from './context/CartContext'
 import { AuthProvider }       from './context/AuthContext'
 import { ClientAuthProvider } from './context/ClientAuthContext'
+import { CurrencyProvider }   from './context/CurrencyContext'
 import Navbar                 from './components/Navbar'
 import Footer                 from './components/Footer'
 import WAFloat                from './components/WAFloat'
@@ -18,8 +19,9 @@ export default function App() {
     <BrowserRouter>
       <AuthProvider>
         <ClientAuthProvider>
-          <CartProvider>
-            <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+          <CurrencyProvider>
+            <CartProvider>
+              <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
               <Navbar />
 
               <main style={{ flex: 1 }}>
@@ -55,9 +57,10 @@ export default function App() {
               }}
             />
           </CartProvider>
-        </ClientAuthProvider>
-      </AuthProvider>
-    </BrowserRouter>
+        </CurrencyProvider>
+      </ClientAuthProvider>
+    </AuthProvider>
+  </BrowserRouter>
   )
 }
 

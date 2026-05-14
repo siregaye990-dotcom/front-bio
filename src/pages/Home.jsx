@@ -10,6 +10,7 @@ import { WHATSAPP_NUMBER, PRICES } from '../utils/products'
 import { visitsApi } from '../lib/supabase'
 import useProducts from '../hooks/useProducts'
 import { useCart } from '../context/CartContext'
+import { useCurrency } from '../context/CurrencyContext'
 import toast from 'react-hot-toast'
 import styles from './Home.module.css'
 
@@ -29,6 +30,7 @@ export default function Home() {
   const navigate = useNavigate()
   const { products } = useProducts()
   const { addItem } = useCart()
+  const { getPrice } = useCurrency()
   const [nlPhone, setNlPhone] = useState('')
   useEffect(() => { visitsApi.track().catch(()=>{}) }, [])
   const goShop = () => navigate('/boutique')
@@ -64,75 +66,83 @@ export default function Home() {
       </section>
 
       {/* PRODUCTS SECTION */}
-      <section className={styles.section}><div className={styles.inner}>
-        <div className={styles.sLabel}>Nos produits phares</div>
-        <h2 className={styles.sTitle}>Trois <em>trésors</em> du terroir</h2>
-        <div className={styles.divider}/>
+      <section className={styles.section}>
+        <div className="container mx-auto px-4">
+          <div className={styles.sLabel}>Nos produits phares</div>
+          <h2 className={styles.sTitle}>Trois <em>trésors</em> du terroir</h2>
+          <div className={styles.divider}/>
 
-        {/* Product cards - Efficient presentation without repeated images */}
-        <div className={styles.prodCardsGrid}>
-          {products.map((p,i) => (
-            <div key={p.id} className={styles.prodCard} onClick={()=>navigate('/boutique/'+p.slug)}>
-              <div className={styles.pcHeader}>
-                <span className={styles.pcIcon}>{i===0?<FaLeaf/>:i===1?<FaStar/>:<GiMortar/>}</span>
-                <span className={styles.pcTag} style={{background:p.color,color:p.id===2?'#1a1209':'#fff'}}>{p.badge}</span>
-              </div>
-              <h3 className={styles.pcName}>{p.name}</h3>
-              <p className={styles.pcDesc}>{p.shortDesc}</p>
-              <div className={styles.pcFooter}>
-                <div className={styles.pcPrice} style={{color:p.color}}>800 FCFA <span>/ 500g</span></div>
-                <div className={styles.pcActions}>
-                  <button className={styles.pcCartBtn} onClick={(e) => handleAddToCart(e, p)}>
-                    <FiShoppingCart size={15}/>
-                  </button>
-                  <button className={styles.pcBtn}><FiArrowRight size={16}/></button>
+          {/* Product cards - Efficient presentation without repeated images */}
+          <div className={styles.prodCardsGrid}>
+            {products.map((p,i) => (
+              <div key={p.id} className={styles.prodCard} onClick={()=>navigate('/boutique/'+p.slug)}>
+                <div className={styles.pcHeader}>
+                  <span className={styles.pcIcon}>{i===0?<FaLeaf/>:i===1?<FaStar/>:<GiMortar/>}</span>
+                  <span className={styles.pcTag} style={{background:p.color,color:p.id===2?'#1a1209':'#fff'}}>{p.badge}</span>
+                </div>
+                <h3 className={styles.pcName}>{p.name}</h3>
+                <p className={styles.pcDesc}>{p.shortDesc}</p>
+                <div className={styles.pcFooter}>
+                  <div className={styles.pcPrice} style={{color:p.color}}>{getPrice(800)} <span>/ 500g</span></div>
+                  <div className={styles.pcActions}>
+                    <button className={styles.pcCartBtn} onClick={(e) => handleAddToCart(e, p)}>
+                      <FiShoppingCart size={15}/>
+                    </button>
+                    <button className={styles.pcBtn}><FiArrowRight size={16}/></button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* Values */}
-        <div className={styles.vGrid}>
-          {VALS.map((v,i) => (
-            <div key={i} className={`${styles.vCard} ${styles['v'+i]}`}>
-              <div className={styles.vIcon}>{v.icon}</div>
-              <h3 className={styles.vTitle}>{v.title}</h3>
-              <p className={styles.vText}>{v.text}</p>
-            </div>
-          ))}
+          {/* Values */}
+          <div className={styles.vGrid}>
+            {VALS.map((v,i) => (
+              <div key={i} className={`${styles.vCard} ${styles['v'+i]}`}>
+                <div className={styles.vIcon}>{v.icon}</div>
+                <h3 className={styles.vTitle}>{v.title}</h3>
+                <p className={styles.vText}>{v.text}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div></section>
+      </section>
 
       {/* REVIEWS */}
-      <section className={styles.revSection}><div className={styles.revInner}>
-        <div className={styles.revLabel}>Ils nous font confiance</div>
-        <h2 className={styles.revTitle}>Ce que disent <em>nos clients</em></h2>
-        <div className={styles.revDivider}/>
-        <div className={styles.revGrid}>
-          {REVS.map((r,i) => (
-            <div key={i} className={styles.revCard}>
-              <div className={styles.revStars}>{'★'.repeat(r.stars)}</div>
-              <p className={styles.revText}>"{r.text}"</p>
-              <div className={styles.revAuthor}>
-                <div className={styles.revAvatar}>{r.initials}</div>
-                <div><div className={styles.revName}>{r.name}</div><div className={styles.revCity}>📍 {r.city}</div></div>
+      <section className={styles.revSection}>
+        <div className="container mx-auto px-4">
+          <div className={styles.revLabel}>Ils nous font confiance</div>
+          <h2 className={styles.revTitle}>Ce que disent <em>nos clients</em></h2>
+          <div className={styles.revDivider}/>
+          <div className={styles.revGrid}>
+            {REVS.map((r,i) => (
+              <div key={i} className={styles.revCard}>
+                <div className={styles.revStars}>{'★'.repeat(r.stars)}</div>
+                <p className={styles.revText}>"{r.text}"</p>
+                <div className={styles.revAuthor}>
+                  <div className={styles.revAvatar}>{r.initials}</div>
+                  <div><div className={styles.revName}>{r.name}</div><div className={styles.revCity}>📍 {r.city}</div></div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div></section>
+      </section>
 
       {/* NEWSLETTER */}
-      <section className={styles.nl}><div className={styles.nlInner}>
-        <div className={styles.nlTitle}>🌾 Restez informé</div>
-        <p className={styles.nlSub}>Recevez nos promotions et recettes exclusives directement par WhatsApp</p>
-        <div className={styles.nlForm}>
-          <input className={styles.nlInp} type="tel" placeholder="Votre numéro WhatsApp..." value={nlPhone} onChange={e=>setNlPhone(e.target.value)} onKeyDown={e=>e.key==='Enter'&&handleNL()}/>
-          <button className={styles.nlBtn} onClick={handleNL}><FaWhatsapp size={14}/> S'inscrire</button>
+      <section className={styles.nl}>
+        <div className="container mx-auto px-4">
+          <div className={styles.nlInner}>
+            <div className={styles.nlTitle}>🌾 Restez informé</div>
+            <p className={styles.nlSub}>Recevez nos promotions et recettes exclusives directement par WhatsApp</p>
+            <div className={styles.nlForm}>
+              <input className={styles.nlInp} type="tel" placeholder="Votre numéro WhatsApp..." value={nlPhone} onChange={e=>setNlPhone(e.target.value)} onKeyDown={e=>e.key==='Enter'&&handleNL()}/>
+              <button className={styles.nlBtn} onClick={handleNL}><FaWhatsapp size={14}/> S'inscrire</button>
+            </div>
+            <p className={styles.nlNote}>🔒 Données confidentielles · Désinscription à tout moment</p>
+          </div>
         </div>
-        <p className={styles.nlNote}>🔒 Données confidentielles · Désinscription à tout moment</p>
-      </div></section>
+      </section>
     </div>
   )
 }

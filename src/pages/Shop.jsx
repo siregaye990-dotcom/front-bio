@@ -6,6 +6,7 @@ import { FaLeaf, FaStar, FaWhatsapp } from 'react-icons/fa'
 import { GiMortar } from 'react-icons/gi'
 import toast from 'react-hot-toast'
 import { useCart } from '../context/CartContext'
+import { useCurrency } from '../context/CurrencyContext'
 import { PRICES, WHATSAPP_NUMBER } from '../utils/products'
 import useProducts from '../hooks/useProducts'
 import SearchBar from '../components/SearchBar'
@@ -17,6 +18,7 @@ const TAG_ICONS = [<FaLeaf size={8}/>, <FaStar size={8}/>, <GiMortar size={8}/>]
 
 export default function Shop() {
   const { items, subtotal, shipping, total, addItem, updateQty, removeItem, clear } = useCart()
+  const { getPrice } = useCurrency()
   const [selSize, setSelSize] = useState({ 1: '500g', 2: '500g', 3: '500g' })
   const [qty, setQty]         = useState({ 1: 1, 2: 1, 3: 1 })
   const [added, setAdded]     = useState({})
@@ -65,7 +67,7 @@ export default function Shop() {
   }
 
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} container mx-auto px-4`}>
       {/* Header */}
       <div className={styles.header}>
         <div className={styles.eyebrow}>Boutique en ligne</div>
@@ -162,7 +164,7 @@ export default function Shop() {
                         </div>
                         <span className={styles.fmtSize}>{size}</span>
                         <span className={`${styles.fmtPrice} ${getColorClass(product.id)}`}>
-                          {price.toLocaleString('fr-FR')} F
+                          {getPrice(price)}
                         </span>
                       </label>
                     ))}
