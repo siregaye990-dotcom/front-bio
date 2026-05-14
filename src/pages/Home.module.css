@@ -25,11 +25,17 @@
 }
 
 .heroLogoTop {
-  width: 130px;
+  width: 190px; /* Taille augmentée */
   height: auto;
-  margin-bottom: 1.5rem;
-  opacity: 0.95;
-  border-radius: 50%; /* Ajouté pour un logo circulaire propre */
+  margin-bottom: 2.2rem; /* Espace augmenté avant le badge */
+  opacity: 1;
+  border-radius: 50%;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.heroLogoTop:hover {
+  transform: scale(1.06); /* Effet de survol léger */
 }
 
 .heroH1 em {
