@@ -24,13 +24,11 @@
   align-items: center;
 }
 
-.heroH1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(38px, 6vw, 62px);
-  font-weight: 700;
-  line-height: 1.1;
+.heroLogoCentered {
+  width: 120px;
+  height: auto;
   margin-bottom: 1.5rem;
-  color: #fff;
+  filter: brightness(0) invert(1); /* Logo en blanc pour le contraste */
 }
 
 .heroH1 em {
@@ -38,13 +36,22 @@
   font-style: normal;
 }
 
+.heroH1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 52px); /* Taille réduite pour remonter le bouton */
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+  color: #fff;
+}
+
 .heroP {
-  font-size: 17px;
-  font-weight: 300;
-  color: rgba(255,255,255,.9);
+  font-size: 16px;
+  font-weight: 500; /* Augmentation de la graisse pour lisibilité */
+  color: #ffffff; /* Blanc pur */
   line-height: 1.8;
-  margin-bottom: 2.5rem;
-  max-width: 700px;
+  margin-bottom: 2rem;
+  max-width: 650px;
 }
 
 .heroBtnPrimary {
