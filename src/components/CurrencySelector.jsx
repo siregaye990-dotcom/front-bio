@@ -38,8 +38,8 @@ const CurrencySelector = () => {
           alt={selectedCurrency.label}
           className="w-5 h-auto shadow-sm"
         />
-        <span className="text-[11px] font-bold tracking-tight uppercase !text-white">{selectedCurrency.label}</span>
-        <FiChevronDown size={14} className={`!text-white/60 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <span className="text-[11px] font-bold tracking-tight uppercase" style={{ color: '#ffffff' }}>{selectedCurrency.label}</span>
+        <FiChevronDown size={14} style={{ color: 'rgba(255,255,255,0.6)' }} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
       
       {/* Menu déroulant — S'affiche uniquement au clic */}
@@ -54,7 +54,7 @@ const CurrencySelector = () => {
                   setIsOpen(false);
                 }}
                 className={`flex items-center gap-3 w-full px-3 py-2 text-left text-[11px] font-bold tracking-tight uppercase transition-colors ${
-                  currency === curr.code ? '!text-white bg-white/10 font-black' : 'text-white/70 hover:text-white hover:bg-white/5'
+                  currency === curr.code ? 'bg-white/10' : 'hover:bg-white/5'
                 }`}
               >
                 <img 
@@ -62,7 +62,7 @@ const CurrencySelector = () => {
                   alt={curr.label}
                   className="w-5 h-auto shadow-sm"
                 />
-                <span>{curr.label}</span>
+                <span className="font-bold" style={{ color: '#ffffff' }}>{curr.label}</span>
               </button>
             ))}
           </div>
