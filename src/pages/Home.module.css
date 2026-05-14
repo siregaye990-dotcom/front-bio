@@ -25,10 +25,7 @@
 }
 
 .heroLogoCentered {
-  width: 120px;
-  height: auto;
-  margin-bottom: 1.5rem;
-  filter: brightness(0) invert(1); /* Logo en blanc pour le contraste */
+  display: none; /* Supprimé car maintenant en overlay */
 }
 
 .heroH1 em {
@@ -79,11 +76,40 @@
   box-shadow: 0 10px 25px rgba(232, 184, 75, 0.3);
 }
 
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.15); /* Plus clair pour le contraste */
+  color: #ffffff; /* Changé de doré à blanc pour une visibilité maximale */
+  font-size: 10px;
+  font-weight: 800; /* Plus épais */
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
 .heroImageWrapper {
   width: 100%;
   max-width: 800px;
   display: flex;
   justify-content: center;
+  position: relative; /* Pour positionner le logo par-dessus */
+}
+
+.heroLogoOverlay {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: auto;
+  z-index: 3;
+  filter: brightness(0) invert(1); /* Logo en blanc */
+  opacity: 0.9;
+  pointer-events: none; /* Ne pas gêner le clic sur l'image */
 }
 
 .heroMainImageCentered {

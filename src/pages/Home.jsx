@@ -52,13 +52,13 @@ export default function Home() {
       {/* HERO — UNIFIÉ & PREMIUM */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <img src={LOGO_B64} alt="Bio Sén" className={styles.heroLogoCentered}/>
-          <div className={styles.heroBadge}><FaLeaf size={10}/> 100% Bio · Origine Sénégal</div>
+          <div className={styles.heroBadge}><FaLeaf size={10}/> 100% BIO · ORIGINE SÉNÉGAL</div>
           <h1 className={styles.heroH1}>Vos Céréales Ancestrales,<br/><em>Prêtes en un Clin d'Œil</em></h1>
           <p className={styles.heroP}>Arraw, Thiéré, Thiakry — céréales ancestrales sénégalaises précuites au sable filtré. Certifiées 100% biologiques, sans additifs, livrées chez vous.</p>
           <button className={styles.heroBtnPrimary} onClick={goShop}>Commander maintenant <FiArrowRight size={13}/></button>
           
           <div className={styles.heroImageWrapper}>
+            <img src={LOGO_B64} alt="Bio Sén" className={styles.heroLogoOverlay}/>
             <img src={SACHETS_B64} alt="Gamme Bio Sén" className={styles.heroMainImageCentered}/>
           </div>
         </div>
