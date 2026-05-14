@@ -5,7 +5,6 @@ import { FiArrowRight, FiShoppingCart } from 'react-icons/fi'
 import { FaLeaf, FaTruck, FaStar, FaWhatsapp } from 'react-icons/fa'
 import { GiWheat, GiMortar } from 'react-icons/gi'
 import { MdBolt } from 'react-icons/md'
-import LOGO_B64    from '../assets/logo_b64'
 import SACHETS_B64 from '../assets/sachets_b64'
 import { WHATSAPP_NUMBER, PRICES } from '../utils/products'
 import { visitsApi } from '../lib/supabase'
@@ -52,7 +51,7 @@ export default function Home() {
       {/* HERO — UNIFIÉ & PREMIUM */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <img src={LOGO_B64} alt="Bio Sén" className={styles.heroLogoTop}/>
+          <img src="/logo.jpg" alt="Bio Sén" className={styles.heroLogoTop}/>
           <div className={styles.heroBadge}><FaLeaf size={10}/> 100% BIO · ORIGINE SÉNÉGAL</div>
           <h1 className={styles.heroH1}>Vos Céréales Ancestrales,<br/><em>Prêtes en un Clin d'Œil</em></h1>
           <p className={styles.heroP}>Arraw, Thiéré, Thiakry — céréales ancestrales sénégalaises précuites au sable filtré. Certifiées 100% biologiques, sans additifs, livrées chez vous.</p>

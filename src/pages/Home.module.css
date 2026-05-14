@@ -24,6 +24,14 @@
   align-items: center;
 }
 
+.heroLogoTop {
+  width: 130px;
+  height: auto;
+  margin-bottom: 1.5rem;
+  opacity: 0.95;
+  border-radius: 50%; /* Ajouté pour un logo circulaire propre */
+}
+
 .heroH1 em {
   color: var(--gold-light);
   font-style: normal;
@@ -93,14 +101,6 @@
   display: flex;
   justify-content: center;
   position: relative; /* Pour positionner le logo par-dessus */
-}
-
-.heroLogoTop {
-  width: 130px;
-  height: auto;
-  margin-bottom: 1.5rem;
-  filter: brightness(0) invert(1); /* Logo en blanc */
-  opacity: 0.95;
 }
 
 .heroMainImageCentered {
