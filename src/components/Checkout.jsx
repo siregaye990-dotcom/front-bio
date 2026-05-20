@@ -23,7 +23,7 @@ function generateOrderId() {
 }
 
 export default function Checkout({ onClose }) {
-  const { items, shipping, total, promo, clear } = useCart()
+  const { items, total, promo, clear } = useCart()
   const { formatPrice } = useCurrency()
   const [form, setForm]   = useState({ name: '', phone: '', note: '' })
   const [payMode, setPay] = useState('Orange Money')

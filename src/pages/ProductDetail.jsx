@@ -222,7 +222,6 @@ export default function ProductDetail() {
               <div className={styles.badge}><FaLeaf size={12} color="var(--gold)"/> 100% Bio certifié</div>
               <div className={styles.badge}><GiAfrica size={12} color="var(--gold)"/> Origine Sénégal</div>
               <div className={styles.badge}><MdBolt size={12} color="var(--gold)"/> Précuit, prêt vite</div>
-              <div className={styles.badge}><FiTruck size={12} color="var(--gold)"/> Livraison disponible</div>
             </div>
           </div>
         </div>

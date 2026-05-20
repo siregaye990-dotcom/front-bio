@@ -65,11 +65,10 @@ export function CartProvider({ children }) {
   }, [state])
 
   const subtotal = state.items.reduce((s, i) => s + i.total, 0)
-  const shipping = 0
   const discount = state.promo
     ? Math.round(subtotal * state.promo.pct)
     : 0
-  const total = subtotal + shipping - discount
+  const total = subtotal - discount
   const count = state.items.reduce((s, i) => s + i.qty, 0)
 
   const addItem = (product, size, price, qty, color, stockKey) =>
@@ -89,7 +88,7 @@ export function CartProvider({ children }) {
   return (
     <CartContext.Provider value={{
       items: state.items, promo: state.promo,
-      subtotal, shipping, discount, total, count,
+      subtotal, discount, total, count,
       addItem, updateQty, removeItem, clear, applyPromo
     }}>
       {children}
