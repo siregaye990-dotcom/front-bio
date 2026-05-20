@@ -36,7 +36,7 @@ const CurrencySelector = () => {
         <img 
           src={`https://flagcdn.com/w40/${selectedCurrency.country}.png`}
           alt={selectedCurrency.label}
-          className="w-5 h-auto shadow-sm"
+          className="w-4 h-auto shadow-sm"
         />
         <span className="text-[11px] font-bold tracking-tight uppercase" style={{ color: '#ffffff' }}>{selectedCurrency.label}</span>
         <FiChevronDown size={14} style={{ color: 'rgba(255,255,255,0.6)' }} className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} />
@@ -60,7 +60,7 @@ const CurrencySelector = () => {
                 <img 
                   src={`https://flagcdn.com/w40/${curr.country}.png`}
                   alt={curr.label}
-                  className="w-5 h-auto shadow-sm"
+                  className="w-4 h-auto shadow-sm"
                 />
                 <span className="font-bold" style={{ color: '#ffffff' }}>{curr.label}</span>
               </button>
