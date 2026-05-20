@@ -25,7 +25,7 @@ function generateOrderId() {
 export default function Checkout({ onClose }) {
   const { items, shipping, total, promo, clear } = useCart()
   const { formatPrice } = useCurrency()
-  const [form, setForm]   = useState({ name: '', phone: '', addr: '', addr2: '', note: '' })
+  const [form, setForm]   = useState({ name: '', phone: '', note: '' })
   const [payMode, setPay] = useState('Orange Money')
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(null) // { orderId, waUrl }
@@ -33,14 +33,14 @@ export default function Checkout({ onClose }) {
   const set = (field) => (e) => setForm(f => ({ ...f, [field]: e.target.value }))
 
   const handleSubmit = async () => {
-    if (!form.name || !form.phone || !form.addr) {
+    if (!form.name || !form.phone) {
       toast.error('Remplissez les champs obligatoires (*)')
       return
     }
     setLoading(true)
     try {
       const orderId  = generateOrderId()
-      const fullAddr = form.addr + (form.addr2 ? ', ' + form.addr2 : '')
+      const fullAddr = 'Vente directe / Boutique'
       const itemsStr = items.map(i => `${i.name} ${i.size} ×${i.qty}`).join(', ')
 
       const orderPayload = {
@@ -75,7 +75,6 @@ export default function Checkout({ onClose }) {
         `📦 *N° :* ${orderId}\n` +
         `👤 *Client :* ${form.name}\n` +
         `📱 *Tél :* ${form.phone}\n` +
-        `📍 *Adresse :* ${fullAddr}\n` +
         `🛒 *Produits :* ${itemsStr}\n` +
         `💰 *Total :* ${formatPrice(total)}\n` +
         `💳 *Paiement :* ${payMode}` +
@@ -100,7 +99,7 @@ export default function Checkout({ onClose }) {
           <>
             <div className={styles.header}>
               <h2 className={styles.title}>Finaliser la commande</h2>
-              <p className={styles.sub}>Informations de livraison</p>
+              <p className={styles.sub}>Informations de contact</p>
               <button className={styles.closeBtn} onClick={onClose}><FiX size={16}/></button>
             </div>
 
@@ -113,9 +112,6 @@ export default function Checkout({ onClose }) {
                   <span>{formatPrice(i.total)}</span>
                 </div>
               ))}
-              {shipping > 0 && (
-                <div className={styles.recapRow}><span>Livraison</span><span>{formatPrice(shipping)}</span></div>
-              )}
               <div className={styles.recapTotal}>
                 <span>Total à payer</span>
                 <span>{formatPrice(total)}</span>
@@ -131,14 +127,6 @@ export default function Checkout({ onClose }) {
                 <label>📱 WhatsApp *</label>
                 <input type="tel" placeholder="+221 77 000 00 00" value={form.phone} onChange={set('phone')}/>
               </div>
-            </div>
-            <div className={styles.fg}>
-              <label>📍 Quartier / Ville *</label>
-              <input placeholder="Dakar, Médina, Thiès..." value={form.addr} onChange={set('addr')}/>
-            </div>
-            <div className={styles.fg}>
-              <label>🗺️ Adresse précise</label>
-              <input placeholder="Rue, bâtiment, point de repère..." value={form.addr2} onChange={set('addr2')}/>
             </div>
 
             <div className={styles.fg}>

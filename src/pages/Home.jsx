@@ -18,7 +18,7 @@ const VALS = [
   { icon:<FaLeaf/>,  title:'100% Bio',      i:0, text:'Cultivées sans pesticides. Certifiées biologiques du champ à votre table.' },
   { icon:<GiWheat/>, title:'Tradition',     i:1, text:'Recettes ancestrales. Cuisson au sable filtré transmise de génération en génération.' },
   { icon:<MdBolt/>,  title:'Précuit',       i:2, text:'Préparation rapide sans sacrifier l\'authenticité du goût.' },
-  { icon:<FaTruck/>, title:'Local & Livré', i:3, text:'Cultivé au Sénégal, livré partout. Chaque achat soutient les agriculteurs locaux.' },
+  { icon:<FaStar/>,  title:'Qualité Premium', i:3, text:'Cultivé au Sénégal. Chaque achat soutient les agriculteurs locaux et l\'économie nationale.' },
 ]
 const REVS = [
   { initials:'FD', name:'Fatou Diallo',    city:'Dakar, Médina',  stars:5, text:'Le meilleur Thiéré ! La qualité est au rendez-vous, les grains sont parfaits. Ma famille adore !' },
@@ -56,7 +56,7 @@ export default function Home() {
           <img src="/logo.jpg" alt="Bio Sén" className={styles.heroLogoTop}/>
           <div className={styles.heroBadge}><FaLeaf size={10}/> 100% BIO · ORIGINE SÉNÉGAL</div>
           <h1 className={styles.heroH1}>Vos Céréales Ancestrales,<br/><em>Prêtes en un Clin d'Œil</em></h1>
-          <p className={styles.heroP}>Arraw, Thiéré, Thiakry — céréales ancestrales sénégalaises précuites au sable filtré. Certifiées 100% biologiques, sans additifs, livrées chez vous.</p>
+          <p className={styles.heroP}>Arraw, Thiéré, Thiakry — céréales ancestrales sénégalaises précuites au sable filtré. Certifiées 100% biologiques, sans additifs, disponibles dès maintenant.</p>
           <button className={styles.heroBtnPrimary} onClick={goShop}>Commander maintenant <FiArrowRight size={13}/></button>
           
           <div className={styles.heroImageWrapper}>

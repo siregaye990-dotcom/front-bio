@@ -72,7 +72,7 @@ export default function Shop() {
       <div className={styles.header}>
         <div className={styles.eyebrow}>Boutique en ligne</div>
         <h1 className={styles.title}>Commander</h1>
-        <p className={styles.subtitle}>Livraison disponible · Paiement sécurisé · Stock limité</p>
+        <p className={styles.subtitle}>Paiement sécurisé · Stock limité · Qualité Premium</p>
       </div>
 
       <div className={styles.layout}>

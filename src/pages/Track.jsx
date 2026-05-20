@@ -12,16 +12,12 @@ import styles from './Track.module.css'
 
 const STEPS = [
   { key: 'pending',   label: 'Reçue',      Icon: MdReceipt       },
-  { key: 'confirmed', label: 'Confirmée',   Icon: MdCheckCircle   },
-  { key: 'shipped',   label: 'En route',    Icon: MdLocalShipping },
-  { key: 'delivered', label: 'Livrée',      Icon: MdHome          },
+  { key: 'confirmed', label: 'Prête',      Icon: MdCheckCircle   },
 ]
 
 const STATUS_MSGS = {
   pending:   'Votre commande est reçue et sera confirmée sous peu.',
-  confirmed: 'Commande confirmée ! Préparation en cours.',
-  shipped:   'Votre commande est en route vers vous ! 🚚',
-  delivered: 'Commande livrée. Merci pour votre confiance ! 🎉',
+  confirmed: 'Commande confirmée ! Votre commande est prête.',
   cancelled: 'Cette commande a été annulée.',
 }
 
@@ -85,7 +81,7 @@ export default function Track() {
           <FiSearch size={24} className={styles.titleIcon}/> Suivre ma commande
         </h1>
         <p className={styles.sub}>
-          Entrez votre numéro de commande (ex : <strong>#1001</strong>) pour suivre votre livraison en temps réel.
+          Entrez votre numéro de commande (ex : <strong>#1001</strong>) pour suivre le statut de votre commande.
         </p>
         <div className={styles.searchForm}>
           <input

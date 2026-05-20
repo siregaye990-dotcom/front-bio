@@ -51,8 +51,6 @@ const cartReducer = (state, action) => {
 }
 
 const INITIAL_STATE = { items: [], promo: null }
-const FREE_SHIPPING_THRESHOLD = 5000
-const SHIPPING_FEE = 500
 
 export function CartProvider({ children }) {
   const [state, dispatch] = useReducer(cartReducer, INITIAL_STATE, () => {
@@ -67,9 +65,7 @@ export function CartProvider({ children }) {
   }, [state])
 
   const subtotal = state.items.reduce((s, i) => s + i.total, 0)
-  const shipping = state.items.length > 0
-    ? (subtotal >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FEE)
-    : 0
+  const shipping = 0
   const discount = state.promo
     ? Math.round(subtotal * state.promo.pct)
     : 0

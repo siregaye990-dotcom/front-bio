@@ -104,8 +104,6 @@ export const PROMO_CODES = {
 export const STATUS_MAP = {
   pending:   { label: 'En attente',  color: '#8a6010', bg: '#fff8e0', dot: '#c8982a', step: 0 },
   confirmed: { label: 'Confirmée',   color: '#1a5a30', bg: '#e0f0e8', dot: '#1a6b35', step: 1 },
-  shipped:   { label: 'Expédiée',    color: '#1a3a6a', bg: '#e0eef8', dot: '#1a5a8a', step: 2 },
-  delivered: { label: 'Livrée',      color: '#1a4a15', bg: '#e8f5e0', dot: '#2a8a1a', step: 3 },
   cancelled: { label: 'Annulée',     color: '#8a1a1a', bg: '#fde8e8', dot: '#c82a2a', step: -1 },
 }
 

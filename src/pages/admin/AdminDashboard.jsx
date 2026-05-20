@@ -263,8 +263,7 @@ export default function AdminDashboard() {
     doc.text(`Date : ${date}`, 14, 52)
     doc.text(`Client : ${receipt.client_name}`, 14, 60)
     doc.text(`Téléphone : ${receipt.phone||'—'}`, 14, 68)
-    doc.text(`Adresse : ${receipt.address||'—'}`, 14, 76)
-    if (receipt.note) doc.text(`Note : ${receipt.note}`, 14, 84)
+    if (receipt.note) doc.text(`Note : ${receipt.note}`, 14, 76)
     doc.setFontSize(11); doc.setTextColor(30)
     doc.text('Produits commandés :', 14, 96)
     doc.setFontSize(10); doc.setTextColor(80)
@@ -500,7 +499,7 @@ export default function AdminDashboard() {
           <h2 className={styles.panelTitle}><MdShoppingBag size={18}/> Commandes</h2>
           <div className={styles.panelActions}>
             <div className={styles.filterBtns}>
-              {['all','pending','confirmed','shipped','delivered'].map(f => (
+              {['all','pending','confirmed','cancelled'].map(f => (
                 <button
                   key={f}
                   className={`${styles.filterBtn} ${filter === f ? styles.filterBtnOn : ''}`}
@@ -544,7 +543,6 @@ export default function AdminDashboard() {
                     <td><span className={styles.orderId}>{order.order_number}</span></td>
                     <td>
                       <div className={styles.clientName}>{order.client_name || order.name}</div>
-                      <div className={styles.clientAddr}>{order.address || order.addr}</div>
                     </td>
                     <td className={styles.phone}>{order.phone}</td>
                     <td className={styles.items}>{order.items}</td>
