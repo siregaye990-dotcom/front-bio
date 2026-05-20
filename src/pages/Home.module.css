@@ -124,8 +124,8 @@
 }
 
 /* SECTION */
-.section { padding: 3rem 0; }
-.sectionInner { max-width: 980px; margin: 0 auto; padding: 0 1.5rem; }
+.section { padding: 3rem 4rem; }
+.sectionInner { max-width: 1280px; margin: 0 auto; }
 .sectionLabel { font-size: 10px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); margin-bottom: .4rem; }
 .sectionTitle { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; color: var(--text); margin-bottom: .5rem; line-height: 1; }
 .sectionTitle em { color: var(--green); font-style: normal; }
@@ -388,7 +388,7 @@
 }
 
 /* REVIEW SECTION */
-.revSection { background: var(--dark); padding: 3rem 1.5rem; }
+.revSection { background: var(--dark); padding: 3rem 4rem; }
 .revInner { max-width: 980px; margin: 0 auto; text-align: center; }
 .revLabel { font-size: 10px; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: .4rem; }
 .revTitle { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 700; color: #fff; margin-bottom: .5rem; line-height: 1; }
@@ -405,7 +405,7 @@
 .revCity { font-size: 9px; color: #A0826D; margin-top: 1px; }
 
 /* NEWSLETTER */
-.nl { background: linear-gradient(135deg, var(--gold) 0%, #a07420 100%); padding: 3rem 1.5rem; }
+.nl { background: linear-gradient(135deg, var(--gold) 0%, #a07420 100%); padding: 3rem 4rem; }
 .nlInner { max-width: 600px; margin: 0 auto; text-align: center; }
 .nlTitle { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 700; color: var(--dark); margin-bottom: .4rem; }
 .nlSub { font-size: 12px; color: rgba(13,36,16,.65); margin-bottom: 1.4rem; }

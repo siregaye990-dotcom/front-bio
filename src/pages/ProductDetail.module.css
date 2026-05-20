@@ -1,5 +1,5 @@
 /* src/pages/ProductDetail.module.css */
-.page { max-width: 1080px; margin: 0 auto; padding: 1.5rem 1.5rem 4rem; }
+.page { max-width: 1280px; margin: 0 auto; padding: 1.5rem 4rem 4rem; }
 .notFound { text-align: center; padding: 4rem 2rem; font-size: 16px; color: var(--muted); }
 .back {
   display: inline-flex; align-items: center; gap: 8px;

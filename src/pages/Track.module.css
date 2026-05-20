@@ -1,5 +1,5 @@
 /* src/pages/Track.module.css */
-.page { max-width: 680px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+.page { max-width: 680px; margin: 0 auto; padding: 3rem 4rem 4rem; }
 
 .searchBox {
   background: #fff; border-radius: var(--radius-lg);

@@ -1,5 +1,5 @@
 /* src/pages/Shop.module.css */
-.page { max-width: 1080px; margin: 0 auto; padding: 2.5rem 1.5rem 3rem; }
+.page { max-width: 1280px; margin: 0 auto; padding: 2.5rem 4rem 3rem; }
 .header { margin-bottom: 1.8rem; }
 .eyebrow { font-size: 10px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); margin-bottom: .45rem; }
 .title { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 700; color: var(--text); margin-bottom: .3rem; }
