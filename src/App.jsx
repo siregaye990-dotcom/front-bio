@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import { CartProvider }       from './context/CartContext'
 import { AuthProvider }       from './context/AuthContext'
-import { ClientAuthProvider } from './context/ClientAuthContext'
 import { CurrencyProvider }   from './context/CurrencyContext'
 import Navbar                 from './components/Navbar'
 import Footer                 from './components/Footer'
@@ -18,11 +17,10 @@ export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <ClientAuthProvider>
-          <CurrencyProvider>
-            <CartProvider>
-              <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-              <Navbar />
+        <CurrencyProvider>
+          <CartProvider>
+            <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+            <Navbar />
 
               <main style={{ flex: 1 }}>
                 <Routes>
@@ -58,7 +56,6 @@ export default function App() {
             />
           </CartProvider>
         </CurrencyProvider>
-      </ClientAuthProvider>
     </AuthProvider>
   </BrowserRouter>
   )
