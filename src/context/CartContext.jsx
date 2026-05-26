@@ -66,7 +66,7 @@ export function CartProvider({ children }) {
 
   const subtotal = state.items.reduce((s, i) => s + i.total, 0)
   const discount = state.promo
-    ? Math.round(subtotal * state.promo.pct)
+    ? subtotal * state.promo.pct
     : 0
   const total = subtotal - discount
   const count = state.items.reduce((s, i) => s + i.qty, 0)

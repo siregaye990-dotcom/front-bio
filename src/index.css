@@ -96,6 +96,21 @@ img { max-width: 100%; display: block; }
   50% { transform: translateY(-7px); }
 }
 
+/* Custom scrollbar for cart */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+
 @media print {
   nav, .wa-float, .toast-container, [class*="overlay"] { display: none !important; }
 }

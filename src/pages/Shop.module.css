@@ -63,34 +63,8 @@
 .addBtn0 { background: var(--green); } .addBtn1 { background: var(--gold); color: var(--dark); } .addBtn2 { background: var(--earth); }
 .addBtnAdded { filter: brightness(1.05); }
 
-/* CART */
-.cartSide { background: #fff; border-radius: var(--radius-lg); border: 1.5px solid rgba(0,0,0,.06); padding: 1.6rem; position: sticky; top: 88px; box-shadow: var(--shadow-sm); }
-.cartHeader { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.2rem; padding-bottom: .9rem; border-bottom: 1px solid rgba(0,0,0,.06); }
-.cartTitle { font-family: 'Cormorant Garamond',serif; font-size: 23px; font-weight: 700; color: var(--text); }
-.clearBtn { font-size: 10px; color: var(--muted); cursor: pointer; border: none; background: none; font-family: inherit; text-decoration: underline; }
-.cartItems { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1.1rem; }
-.cartEmpty { text-align: center; padding: 1.5rem 0; color: var(--muted); font-size: 11px; font-style: italic; }
-.cartItem { display: flex; align-items: center; gap: 8px; padding: 10px 12px; background: var(--green-3); border-radius: 10px; animation: slideIn .2s ease; }
-@keyframes slideIn { from { opacity:0; transform:translateX(-8px); } to { opacity:1; transform:translateX(0); } }
-.itemDot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-.itemInfo { flex: 1; min-width: 0; }
-.itemName { font-size: 12px; font-weight: 600; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.itemSize { font-size: 10px; color: var(--muted); }
-.itemQty { display: flex; align-items: center; gap: 4px; }
-.iqBtn { width: 18px; height: 18px; border: 1px solid rgba(0,0,0,.1); border-radius: 4px; background: #fff; font-size: 11px; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--text); }
-.iqVal { font-size: 10px; font-weight: 600; width: 18px; text-align: center; color: var(--text); }
-.itemPrice { font-size: 11px; font-weight: 700; min-width: 65px; text-align: right; color: var(--green); }
-.removeBtn { background: none; border: none; cursor: pointer; color: #ccc; font-size: 12px; transition: color .15s; }
-.removeBtn:hover { color: var(--red); }
-.totals { border-top: 1px solid rgba(0,0,0,.06); padding-top: 1rem; margin-bottom: 1.2rem; }
-.totRow { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-bottom: 5px; }
-.totGrand { font-size: 15px; font-weight: 700; color: var(--text); margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(0,0,0,.08); }
-.totVal { color: var(--green); font-size: 16px; }
-.checkoutBtn { width: 100%; background: var(--green); color: #fff; border-radius: 12px; padding: 14px; font-family: 'Jost',sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; cursor: pointer; margin-bottom: 10px; transition: all .2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
-.checkoutBtn:hover { background: #1f7b3c; transform: translateY(-1px); }
-.secureNote { text-align: center; font-size: 10px; color: var(--muted); display: flex; align-items: center; justify-content: center; gap: 7px; margin-bottom: .9rem; }
-.waAlt { display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(37,211,102,.1); color: #25D366; border: 1px solid rgba(37,211,102,.25); padding: 11px; border-radius: 12px; font-family: 'Jost',sans-serif; font-size: 10px; font-weight: 700; text-decoration: none; transition: all .2s; }
-.waAlt:hover { background: #25D366; color: #fff; }
+/* SIDEBAR */
+.cartSide { display: none; } /* Replaced by Tailwind Cart component */
 
 @media (max-width: 768px) {
   .layout { grid-template-columns: 1fr; }

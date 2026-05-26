@@ -12,6 +12,7 @@ import useProducts from '../hooks/useProducts'
 import SearchBar from '../components/SearchBar'
 import ProductSkeleton from '../components/ProductSkeleton'
 import Checkout from '../components/Checkout'
+import Cart from '../components/Cart'
 import styles from './Shop.module.css'
 
 const TAG_ICONS = [<FaLeaf size={8}/>, <FaStar size={8}/>, <GiMortar size={8}/>]
@@ -202,55 +203,8 @@ export default function Shop() {
         </div>
 
         {/* Cart sidebar */}
-        <div className={styles.cartSide}>
-          <div className={styles.cartHeader}>
-            <span className={styles.cartTitle}>🛒 Panier</span>
-            <button className={styles.clearBtn} onClick={clear}>Vider</button>
-          </div>
-
-          <div className={styles.cartItems}>
-            {items.length === 0
-              ? <p className={styles.cartEmpty}>Votre panier est vide</p>
-              : items.map((item, i) => (
-                <div key={item.key} className={styles.cartItem}>
-                  <div className={styles.itemDot} style={{ background: item.color }}/>
-                  <div className={styles.itemInfo}>
-                    <div className={styles.itemName}>{item.name}</div>
-                    <div className={styles.itemSize}>{item.size}</div>
-                  </div>
-                  <div className={styles.itemQty}>
-                    <button className={styles.iqBtn} onClick={() => updateQty(i, -1)}>−</button>
-                    <span className={styles.iqVal}>{item.qty}</span>
-                    <button className={styles.iqBtn} onClick={() => updateQty(i, 1)}>+</button>
-                  </div>
-                  <div className={styles.itemPrice}>{item.total.toLocaleString('fr-FR')} F</div>
-                  <button className={styles.removeBtn} onClick={() => removeItem(i)}>✕</button>
-                </div>
-              ))
-            }
-          </div>
-
-          {/* Totals */}
-          <div className={styles.totals}>
-            <div className={styles.totRow}><span>Sous-total</span><span>{subtotal.toLocaleString('fr-FR')} FCFA</span></div>
-            <div className={`${styles.totRow} ${styles.totGrand}`}><span>Total</span><span className={styles.totVal}>{total.toLocaleString('fr-FR')} FCFA</span></div>
-          </div>
-
-          <button className={styles.checkoutBtn} onClick={() => { if (!items.length) { toast.error('Votre panier est vide !'); return; } setCheckoutOpen(true) }}>
-            <FiLock size={11}/> Commander maintenant
-          </button>
-          <div className={styles.secureNote}>
-            <FiShield size={11} color="var(--green)"/> Orange Money · Wave · Carte
-          </div>
-
-          {/* WA alternative */}
-          <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Bonjour%20Bio%20S%C3%A9n%2C%20je%20voudrais%20commander%20!`}
-            target="_blank" rel="noreferrer"
-            className={styles.waAlt}
-          >
-            <FaWhatsapp size={13}/> Commander via WhatsApp
-          </a>
+        <div className="w-[340px] shrink-0">
+          <Cart onCheckout={() => setCheckoutOpen(true)} />
         </div>
       </div>
 

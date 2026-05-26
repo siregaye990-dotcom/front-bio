@@ -83,7 +83,7 @@ export default function Home() {
                 <h3 className={styles.pcName}>{p.name}</h3>
                 <p className={styles.pcDesc}>{p.shortDesc}</p>
                 <div className={styles.pcFooter}>
-                  <div className={styles.pcPrice} style={{color:p.color}}>{getPrice(800)} <span>/ 500g</span></div>
+                  <div className={styles.pcPrice} style={{color:p.color}}>{getPrice(PRICES['500g'])} <span>/ 500g</span></div>
                   <div className={styles.pcActions}>
                     <button className={styles.pcCartBtn} onClick={(e) => handleAddToCart(e, p)}>
                       <FiShoppingCart size={15}/>

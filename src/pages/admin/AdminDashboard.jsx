@@ -19,10 +19,10 @@ import styles from './AdminDashboard.module.css'
 const SEED_ORDERS = () => {
   const t = new Date().toISOString()
   return [
-    { id:'1', order_number:'#1001', client_name:'Fatou Diallo',  phone:'+221 77 123 45 67', address:'Dakar, Médina',  items:'Thiéré de Mil 500g ×2', total:1600, payment_method:'Wave',         status:'delivered', created_at:t, note:'' },
-    { id:'2', order_number:'#1002', client_name:'Moussa Sow',    phone:'+221 76 234 56 78', address:'Dakar, Plateau', items:'Arraw de Mil 1kg ×1',    total:1600, payment_method:'Orange Money',  status:'shipped',   created_at:t, note:'' },
-    { id:'3', order_number:'#1003', client_name:'Aminata Ba',    phone:'+221 78 345 67 89', address:'Thiès',          items:'Thiakry de Mil 500g ×3', total:2400, payment_method:'Cash',          status:'confirmed', created_at:t, note:'Livrer avant 18h' },
-    { id:'4', order_number:'#1004', client_name:'Ibrahim Ndiaye',phone:'+221 77 456 78 90', address:'Dakar, Yoff',   items:'Thiéré 1kg ×1, Arraw 500g ×2', total:3200, payment_method:'Wave',   status:'pending',   created_at:t, note:'' },
+    { id:'1', order_number:'#1001', client_name:'Fatou Diallo',  phone:'+221 77 123 45 67', address:'Dakar, Médina',  items:'Thiéré de Mil 500g ×2', total:3.04, payment_method:'Wave',         status:'delivered', created_at:t, note:'' },
+    { id:'2', order_number:'#1002', client_name:'Moussa Sow',    phone:'+221 76 234 56 78', address:'Dakar, Plateau', items:'Arraw de Mil 1kg ×1',    total:3.05, payment_method:'Orange Money',  status:'shipped',   created_at:t, note:'' },
+    { id:'3', order_number:'#1003', client_name:'Aminata Ba',    phone:'+221 78 345 67 89', address:'Thiès',          items:'Thiakry de Mil 500g ×3', total:4.56, payment_method:'Cash',          status:'confirmed', created_at:t, note:'Livrer avant 18h' },
+    { id:'4', order_number:'#1004', client_name:'Ibrahim Ndiaye',phone:'+221 77 456 78 90', address:'Dakar, Yoff',   items:'Thiéré 1kg ×1, Arraw 500g ×2', total:6.09, payment_method:'Wave',   status:'pending',   created_at:t, note:'' },
   ]
 }
 

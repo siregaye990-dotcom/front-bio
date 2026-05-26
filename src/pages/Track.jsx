@@ -4,8 +4,9 @@ import { useSearchParams } from 'react-router-dom'
 import { FiSearch } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
 import {
-  MdReceipt, MdCheckCircle, MdLocalShipping, MdHome, MdCancel
+  MdReceipt, MdCheckCircle, MdCancel
 } from 'react-icons/md'
+import { useCurrency } from '../context/CurrencyContext'
 import { ordersApi } from '../lib/supabase'
 import { STATUS_MAP, WHATSAPP_NUMBER } from '../utils/products'
 import styles from './Track.module.css'
@@ -22,6 +23,7 @@ const STATUS_MSGS = {
 }
 
 export default function Track() {
+  const { formatPrice } = useCurrency()
   const [params] = useSearchParams()
   const [query,  setQuery]  = useState(params.get('id') || '')
   const [order,  setOrder]  = useState(null)
@@ -207,7 +209,7 @@ export default function Track() {
             <div className={styles.itemTotal}>
               <span>Total payé</span>
               <span className={styles.itemTotalVal}>
-                {(order.total || 0).toLocaleString('fr-FR')} FCFA
+                {formatPrice(order.total || 0)}
               </span>
             </div>
             {(order.note || order.note) && (

@@ -90,8 +90,8 @@ export const PRODUCTS = [
 ]
 
 export const PRICES = {
-  '500g': 800,
-  '1kg': 1600
+  '500g': 1.52,
+  '1kg': 3.05
 }
 
 export const PROMO_CODES = {

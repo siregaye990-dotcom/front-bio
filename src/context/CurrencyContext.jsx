@@ -5,35 +5,19 @@ const CurrencyContext = createContext();
 export const useCurrency = () => useContext(CurrencyContext);
 
 export const CurrencyProvider = ({ children }) => {
-  const [currency, setCurrency] = useState(() => {
-    return localStorage.getItem('biosen_currency') || 'XOF';
-  });
+  const [currency, setCurrency] = useState('USD');
 
   useEffect(() => {
-    localStorage.setItem('biosen_currency', currency);
+    // Force USD for now as requested
+    if (currency !== 'USD') setCurrency('USD');
   }, [currency]);
 
-  const getPrice = (baseXofPrice) => {
-    if (currency === 'XOF') return `${baseXofPrice} FCFA`;
-    
-    // Fixed conversion specified by user
-    let converted;
-    if (baseXofPrice === 800) converted = 1.52;
-    else if (baseXofPrice === 1600) converted = 3.05;
-    else {
-      // For subtotals and other amounts, use the average rate (0.0019)
-      converted = baseXofPrice * 0.0019;
-    }
-    
-    const symbol = currency === 'EUR' ? '€' : '$';
-    return `${symbol}${converted.toFixed(2)}`;
+  const getPrice = (price) => {
+    return `$${price.toFixed(2)}`;
   };
 
-  const formatPrice = (amountXof) => {
-    if (currency === 'XOF') return `${amountXof} FCFA`;
-    const symbol = currency === 'EUR' ? '€' : '$';
-    const converted = amountXof * 0.0019;
-    return `${symbol}${converted.toFixed(2)}`;
+  const formatPrice = (amount) => {
+    return `$${amount.toFixed(2)}`;
   };
 
   return (

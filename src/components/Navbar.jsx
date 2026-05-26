@@ -30,7 +30,6 @@ export default function Navbar() {
         {showAdmin && <Link to="/admin"    className={`${styles.tab} ${isActive('/admin')    ? styles.active : ''}`}>Admin</Link>}
       </div>
       <div className={styles.actions}>
-        <CurrencySelector />
         <button className={styles.trackPill} onClick={() => navigate('/suivi')}>
           <FiSearch size={12}/> Suivre ma commande
         </button>
