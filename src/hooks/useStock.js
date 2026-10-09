@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { stockApi } from '../lib/supabase'
 import { STOCK_KEYS } from '../utils/products'
 
-const FALLBACK_KEY = 'biosen_stock_fallback'
+const FALLBACK_KEY = 'sweetbio_stock_fallback'
 
 const DEFAULT_STOCK = STOCK_KEYS.map((k, i) => ({
   product_key: k.key,

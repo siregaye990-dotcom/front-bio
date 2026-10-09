@@ -9,7 +9,7 @@ for (let i = 0; i < localStorage.length; i++) {
 }
 
 // Test admin credentials
-const testEmail = 'admin@biosen.sn';
+const testEmail = 'admin@sweetbio.sn';
 const testPassword = 'admin123';
 
 console.log('Testing credentials:', testEmail, testPassword);
@@ -17,7 +17,7 @@ console.log('Expected email:', testEmail);
 console.log('Expected password:', testPassword);
 
 // Simulate login check
-if (testEmail === 'admin@biosen.sn' && testPassword === 'admin123') {
+if (testEmail === 'admin@sweetbio.sn' && testPassword === 'admin123') {
   console.log('✅ Credentials are correct');
 } else {
   console.log('❌ Credentials are wrong');

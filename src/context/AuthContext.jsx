@@ -23,26 +23,26 @@ export function AuthProvider({ children }) {
           setSession(supabaseSession)
         } else {
           // Check local admin session
-          const localSession = localStorage.getItem('biosen_admin_session')
+          const localSession = localStorage.getItem('sweetbio_admin_session')
           if (localSession) {
             const parsed = JSON.parse(localSession)
             if (parsed.expires > Date.now()) {
               setSession({ user: { email: parsed.email }, isLocal: true })
             } else {
-              localStorage.removeItem('biosen_admin_session')
+              localStorage.removeItem('sweetbio_admin_session')
             }
           }
         }
       } catch (error) {
         console.warn('Supabase auth failed, using local fallback:', error.message)
         // Check local admin session
-        const localSession = localStorage.getItem('biosen_admin_session')
+        const localSession = localStorage.getItem('sweetbio_admin_session')
         if (localSession) {
           const parsed = JSON.parse(localSession)
           if (parsed.expires > Date.now()) {
             setSession({ user: { email: parsed.email }, isLocal: true })
           } else {
-            localStorage.removeItem('biosen_admin_session')
+            localStorage.removeItem('sweetbio_admin_session')
           }
         }
       } finally {
@@ -83,7 +83,7 @@ export function AuthProvider({ children }) {
         email: email,
         expires: Date.now() + (24 * 60 * 60 * 1000) // 24 hours
       }
-      localStorage.setItem('biosen_admin_session', JSON.stringify(sessionData))
+      localStorage.setItem('sweetbio_admin_session', JSON.stringify(sessionData))
       setSession({ user: { email: email }, isLocal: true })
       // Force page reload to trigger re-render
       window.location.reload()
@@ -99,7 +99,7 @@ export function AuthProvider({ children }) {
     } catch {
       // Ignore Supabase errors
     }
-    localStorage.removeItem('biosen_admin_session')
+    localStorage.removeItem('sweetbio_admin_session')
     setSession(null)
   }
 

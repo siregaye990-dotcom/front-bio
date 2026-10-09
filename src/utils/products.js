@@ -83,7 +83,7 @@ export const PRODUCTS = [
       steps: "1. Tremper le Thiakry précuit dans eau tiède 10 min, égoutter. 2. Mélanger avec lait caillé (yaourt) sucré selon goût. 3. Ajouter vanille ou noix de coco râpée. 4. Servir frais, décoré de raisins secs."
     },
     reviews: [
-      { name: 'Aissatou N.', city: 'Dakar', stars: 5, text: 'Exactement le goût de mon enfance ! Authentique et délicieux. Bravo Bio Sén !' },
+      { name: 'Aissatou N.', city: 'Dakar', stars: 5, text: 'Exactement le goût de mon enfance ! Authentique et délicieux. Bravo SweetBio !' },
       { name: 'Rokhaya D.', city: 'Ziguinchor', stars: 5, text: 'Je prépare ça pour les fêtes et tout le monde en redemande. Qualité au top.' },
     ]
   }
@@ -95,10 +95,10 @@ export const PRICES = {
 }
 
 export const PROMO_CODES = {
-  'BIOS10': { pct: 0.10, label: '10% de réduction' },
+  'SWEET10': { pct: 0.10, label: '10% de réduction' },
   'BIO20': { pct: 0.20, label: '20% de réduction' },
   'SENEGAL15': { pct: 0.15, label: '15% de réduction' },
-  'BIOSEN10': { pct: 0.10, label: '10% de réduction' },
+  'SWEETBIO10': { pct: 0.10, label: '10% de réduction' },
 }
 
 export const STATUS_MAP = {

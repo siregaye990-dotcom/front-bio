@@ -34,7 +34,7 @@ export default function Footer() {
               <FaWhatsapp size={16} />
             </a>
             <a
-              href="https://instagram.com/biosen_senegal"
+              href="https://instagram.com/sweetbio_senegal"
               target="_blank" rel="noreferrer"
               className={`${styles.social} ${styles.ig}`}
               aria-label="Instagram"
@@ -42,7 +42,7 @@ export default function Footer() {
               <FaInstagram size={16} />
             </a>
             <a
-              href="https://facebook.com/biosen.senegal"
+              href="https://facebook.com/sweetbio.senegal"
               target="_blank" rel="noreferrer"
               className={`${styles.social} ${styles.fb}`}
               aria-label="Facebook"
@@ -128,7 +128,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className={styles.bottom}>
         <div className={styles.bottomInner}>
-          <span>© {year} Bio Sén — Tous droits réservés</span>
+          <span>© {year} SweetBio — Tous droits réservés</span>
           <div className={styles.payments}>
             <span>🟠 Orange Money</span>
             <span>🔵 Wave</span>

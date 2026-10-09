@@ -2,7 +2,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { ordersApi } from '../lib/supabase'
 
-const FALLBACK_KEY = 'biosen_orders_fallback'
+const FALLBACK_KEY = 'sweetbio_orders_fallback'
 
 function seedFallback() {
   const t = new Date().toISOString()

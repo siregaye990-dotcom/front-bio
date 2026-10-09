@@ -61,38 +61,38 @@ export default function AdminDashboard() {
       setProducts(p || [])
     } catch {
       // Fallback to localStorage with seed data
-      const localOrders = JSON.parse(localStorage.getItem('biosen_orders') || '[]')
+      const localOrders = JSON.parse(localStorage.getItem('sweetbio_orders') || '[]')
       if (localOrders.length === 0) {
         // Initialize with seed orders
         const seedOrders = SEED_ORDERS()
-        localStorage.setItem('biosen_orders', JSON.stringify(seedOrders))
+        localStorage.setItem('sweetbio_orders', JSON.stringify(seedOrders))
         setOrders(seedOrders)
       } else {
         setOrders(localOrders)
       }
 
-      const localStock = JSON.parse(localStorage.getItem('biosen_stock') || '[]')
+      const localStock = JSON.parse(localStorage.getItem('sweetbio_stock') || '[]')
       if (localStock.length === 0) {
-        localStorage.setItem('biosen_stock', JSON.stringify(SEED_STOCK))
+        localStorage.setItem('sweetbio_stock', JSON.stringify(SEED_STOCK))
         setStock(SEED_STOCK)
       } else {
         setStock(localStock)
       }
 
       // Mock 7-day visits
-      const localVisits = JSON.parse(localStorage.getItem('biosen_visits') || '[]')
+      const localVisits = JSON.parse(localStorage.getItem('sweetbio_visits') || '[]')
       if (localVisits.length === 0) {
         const days = ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim']
         const seedVisits = days.map((d,i) => ({ date: d, count: [28,42,35,61,55,48,72][i] }))
-        localStorage.setItem('biosen_visits', JSON.stringify(seedVisits))
+        localStorage.setItem('sweetbio_visits', JSON.stringify(seedVisits))
         setVisits(seedVisits)
       } else {
         setVisits(localVisits.slice(-7).reverse())
       }
 
-      const localProducts = JSON.parse(localStorage.getItem('biosen_products') || '[]')
+      const localProducts = JSON.parse(localStorage.getItem('sweetbio_products') || '[]')
       if (localProducts.length === 0) {
-        localStorage.setItem('biosen_products', JSON.stringify(PRODUCTS))
+        localStorage.setItem('sweetbio_products', JSON.stringify(PRODUCTS))
         setProducts(PRODUCTS)
       } else {
         setProducts(localProducts)
@@ -147,9 +147,9 @@ export default function AdminDashboard() {
     try {
       await ordersApi.cancel(order.id)
     } catch {
-      const localOrders = JSON.parse(localStorage.getItem('biosen_orders') || '[]')
+      const localOrders = JSON.parse(localStorage.getItem('sweetbio_orders') || '[]')
       const updated = localOrders.map(o => o.id === order.id ? { ...o, status: 'cancelled' } : o)
-      localStorage.setItem('biosen_orders', JSON.stringify(updated))
+      localStorage.setItem('sweetbio_orders', JSON.stringify(updated))
     }
 
     setOrders(prev => prev.map(o => o.id === order.id ? { ...o, status: 'cancelled' } : o))
@@ -181,7 +181,7 @@ export default function AdminDashboard() {
     const csv = rows.map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(',')).join('\n')
     const a = document.createElement('a')
     a.href = URL.createObjectURL(new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' }))
-    a.download = `commandes_biosen_${new Date().toLocaleDateString('fr-FR').replace(/\//g,'-')}.csv`
+    a.download = `commandes_sweetbio_${new Date().toLocaleDateString('fr-FR').replace(/\//g,'-')}.csv`
     a.click()
     toast.success('📊 CSV téléchargé !')
   }
@@ -226,7 +226,7 @@ export default function AdminDashboard() {
     const doc = new jsPDF()
     doc.setFontSize(18)
     doc.setTextColor(26, 107, 53)
-    doc.text('Bio Sén — Feuille de livraison', 14, 22)
+    doc.text('SweetBio — Feuille de livraison', 14, 22)
     doc.setFontSize(10); doc.setTextColor(100)
     doc.text(`Générée le ${new Date().toLocaleDateString('fr-FR')} · ${pending.length} commande(s)`, 14, 30)
     let y = 42
@@ -243,7 +243,7 @@ export default function AdminDashboard() {
       doc.line(14, y+22, 196, y+22)
       y += 28
     })
-    doc.save(`livraisons_biosen_${new Date().toLocaleDateString('fr-FR').replace(/\//g,'-')}.pdf`)
+    doc.save(`livraisons_sweetbio_${new Date().toLocaleDateString('fr-FR').replace(/\//g,'-')}.pdf`)
     toast.success('🖨️ PDF téléchargé !')
   }
 
@@ -253,7 +253,7 @@ export default function AdminDashboard() {
     if (!receipt) return
     const doc = new jsPDF()
     doc.setFontSize(20); doc.setTextColor(26, 107, 53)
-    doc.text('Bio Sén', 14, 20)
+    doc.text('SweetBio', 14, 20)
     doc.setFontSize(10); doc.setTextColor(100)
     doc.text("L'essence du Sénégal, naturellement", 14, 28)
     doc.setFontSize(16); doc.setTextColor(30)
@@ -273,7 +273,7 @@ export default function AdminDashboard() {
     doc.text(`Total payé : ${(receipt.total||0).toLocaleString('fr-FR')} FCFA`, 14, y + 6)
     doc.text(`Paiement : ${receipt.payment_method||'—'}`, 14, y + 14)
     doc.setFontSize(9); doc.setTextColor(150)
-    doc.text("Bio Sén — L'essence du Sénégal, naturellement", 14, 275)
+    doc.text("SweetBio — L'essence du Sénégal, naturellement", 14, 275)
     doc.text('siregaye990@gmail.com  ·  +221 77 068 60 34', 14, 281)
     doc.save(`recu_${receipt.order_number}.pdf`)
     toast.success('🧾 Reçu PDF généré !')
@@ -289,7 +289,7 @@ export default function AdminDashboard() {
       <div className={styles.header}>
         <div>
           <h1 className={styles.headerTitle}>Dashboard <em>Admin</em></h1>
-          <p className={styles.headerSub}>Bio Sén · Gestion complète</p>
+          <p className={styles.headerSub}>SweetBio · Gestion complète</p>
         </div>
         <div className={styles.headerActions}>
           <button className={styles.refreshBtn} onClick={loadData} title="Rafraîchir">
@@ -618,7 +618,7 @@ export default function AdminDashboard() {
                 <div className={styles.rcptRow}><span>Paiement</span><span>{receipt.payment_method||receipt.pay}</span></div>
                 <div className={styles.rcptGrand}><span>Total payé</span><span className={styles.rcptGrandVal}>{(receipt.total||0).toLocaleString('fr-FR')} FCFA</span></div>
               </div>
-              <p className={styles.rcptNote}>Bio Sén — siregaye990@gmail.com · +221 77 068 60 34</p>
+              <p className={styles.rcptNote}>SweetBio — siregaye990@gmail.com · +221 77 068 60 34</p>
               <button className={styles.rcptPrintBtn} onClick={printReceipt}><FiDownload size={12}/> Télécharger PDF</button>
               <button className={styles.rcptCloseBtn} onClick={() => setReceipt(null)}>Fermer</button>
             </div>

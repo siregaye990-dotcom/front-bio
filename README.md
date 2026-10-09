@@ -1,6 +1,6 @@
-# Bio Sén — Frontend
+# SweetBio — Frontend
 
-Ce dossier contient l'application React de Bio Sén.
+Ce dossier contient l'application React de SweetBio.
 
 ## Structure
 - `public/` : fichiers statiques et `index.html`

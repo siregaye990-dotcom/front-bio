@@ -22,7 +22,7 @@ const VALS = [
 ]
 const REVS = [
   { initials:'FD', name:'Fatou Diallo',    city:'Dakar, Médina',  stars:5, text:'Le meilleur Thiéré ! La qualité est au rendez-vous, les grains sont parfaits. Ma famille adore !' },
-  { initials:'AN', name:'Aissatou Ndiaye', city:'Thiès',          stars:5, text:'Exactement le goût de mon enfance ! Le Thiakry de Bio Sén est authentique et délicieux.' },
+  { initials:'AN', name:'Aissatou Ndiaye', city:'Thiès',          stars:5, text:'Exactement le goût de mon enfance ! Le Thiakry de SweetBio est authentique et délicieux.' },
   { initials:'MS', name:'Moussa Sow',      city:'Dakar, Plateau', stars:5, text:'Commandé plusieurs fois. Qualité constante. Parfait pour le thiéré du vendredi.' },
 ]
 
@@ -45,7 +45,7 @@ export default function Home() {
 
   const handleNL = () => {
     if (!nlPhone.trim()) return
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Bonjour Bio Sén ! Je souhaite recevoir vos promotions. Mon numéro : '+nlPhone)}`, '_blank')
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Bonjour SweetBio ! Je souhaite recevoir vos promotions. Mon numéro : '+nlPhone)}`, '_blank')
     setNlPhone('')
   }
   return (
@@ -53,14 +53,14 @@ export default function Home() {
       {/* HERO — UNIFIÉ & PREMIUM */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <img src="/logo.jpg" alt="Bio Sén" className={styles.heroLogoTop}/>
+          <img src="/logo.jpg" alt="SweetBio" className={styles.heroLogoTop}/>
           <div className={styles.heroBadge}><FaLeaf size={10}/> 100% BIO · ORIGINE SÉNÉGAL</div>
           <h1 className={styles.heroH1}>Vos Céréales Ancestrales,<br/><em>Prêtes en un Clin d'Œil</em></h1>
           <p className={styles.heroP}>Arraw, Thiéré, Thiakry — céréales ancestrales sénégalaises précuites au sable filtré. Certifiées 100% biologiques, sans additifs, disponibles dès maintenant.</p>
           <button className={styles.heroBtnPrimary} onClick={goShop}>Commander maintenant <FiArrowRight size={13}/></button>
           
           <div className={styles.heroImageWrapper}>
-            <img src={SACHETS_B64} alt="Gamme Bio Sén" className={styles.heroMainImageCentered}/>
+            <img src={SACHETS_B64} alt="Gamme SweetBio" className={styles.heroMainImageCentered}/>
           </div>
         </div>
       </section>

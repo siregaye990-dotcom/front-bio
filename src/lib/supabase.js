@@ -44,7 +44,7 @@ export const ordersApi = {
       return data
     } else {
       // Fallback to localStorage
-      return JSON.parse(localStorage.getItem('biosen_orders') || '[]')
+      return JSON.parse(localStorage.getItem('sweetbio_orders') || '[]')
     }
   },
 
@@ -60,7 +60,7 @@ export const ordersApi = {
       return data
     } else {
       // Fallback to localStorage
-      const orders = JSON.parse(localStorage.getItem('biosen_orders') || '[]')
+      const orders = JSON.parse(localStorage.getItem('sweetbio_orders') || '[]')
       return orders.find(o => o.order_number === orderId.toUpperCase())
     }
   },
@@ -77,10 +77,10 @@ export const ordersApi = {
       return data
     } else {
       // Fallback to localStorage
-      const orders = JSON.parse(localStorage.getItem('biosen_orders') || '[]')
+      const orders = JSON.parse(localStorage.getItem('sweetbio_orders') || '[]')
       const newOrder = { ...order, id: Date.now().toString(), created_at: new Date().toISOString() }
       orders.unshift(newOrder)
-      localStorage.setItem('biosen_orders', JSON.stringify(orders))
+      localStorage.setItem('sweetbio_orders', JSON.stringify(orders))
       return newOrder
     }
   },
@@ -98,9 +98,9 @@ export const ordersApi = {
       return data
     } else {
       // Fallback to localStorage
-      const orders = JSON.parse(localStorage.getItem('biosen_orders') || '[]')
+      const orders = JSON.parse(localStorage.getItem('sweetbio_orders') || '[]')
       const updated = orders.map(o => o.id === id ? { ...o, status, updated_at: new Date().toISOString() } : o)
-      localStorage.setItem('biosen_orders', JSON.stringify(updated))
+      localStorage.setItem('sweetbio_orders', JSON.stringify(updated))
       return updated.find(o => o.id === id)
     }
   },
@@ -121,11 +121,11 @@ export const productsApi = {
       if (error) throw error
       return data
     } else {
-      const stored = JSON.parse(localStorage.getItem('biosen_products') || '[]')
+      const stored = JSON.parse(localStorage.getItem('sweetbio_products') || '[]')
       if (stored.length > 0) {
         return stored
       }
-      localStorage.setItem('biosen_products', JSON.stringify(PRODUCTS))
+      localStorage.setItem('sweetbio_products', JSON.stringify(PRODUCTS))
       return PRODUCTS
     }
   },
@@ -141,9 +141,9 @@ export const productsApi = {
       if (error) throw error
       return data
     } else {
-      const products = JSON.parse(localStorage.getItem('biosen_products') || '[]')
+      const products = JSON.parse(localStorage.getItem('sweetbio_products') || '[]')
       const updated = products.map(product => product.id === id ? { ...product, ...payload, updated_at: new Date().toISOString() } : product)
-      localStorage.setItem('biosen_products', JSON.stringify(updated))
+      localStorage.setItem('sweetbio_products', JSON.stringify(updated))
       return updated.find(product => product.id === id)
     }
   },
@@ -158,11 +158,11 @@ export const productsApi = {
       if (error) throw error
       return data
     } else {
-      const products = JSON.parse(localStorage.getItem('biosen_products') || '[]')
+      const products = JSON.parse(localStorage.getItem('sweetbio_products') || '[]')
       const nextId = Date.now()
       const newProduct = { ...payload, id: nextId, created_at: new Date().toISOString() }
       products.unshift(newProduct)
-      localStorage.setItem('biosen_products', JSON.stringify(products))
+      localStorage.setItem('sweetbio_products', JSON.stringify(products))
       return newProduct
     }
   }
@@ -182,7 +182,7 @@ export const stockApi = {
       return data
     } else {
       // Fallback to localStorage
-      return JSON.parse(localStorage.getItem('biosen_stock') || JSON.stringify([
+      return JSON.parse(localStorage.getItem('sweetbio_stock') || JSON.stringify([
         { product_key: 'Arraw-500g', product_name: 'Arraw de Mil 500g', quantity: 50, alert_threshold: 10 },
         { product_key: 'Arraw-1kg', product_name: 'Arraw de Mil 1kg', quantity: 30, alert_threshold: 5 },
         { product_key: 'Thiéré-500g', product_name: 'Thiéré de Mil 500g', quantity: 45, alert_threshold: 10 },
@@ -206,9 +206,9 @@ export const stockApi = {
       return data
     } else {
       // Fallback to localStorage
-      const stock = JSON.parse(localStorage.getItem('biosen_stock') || '[]')
+      const stock = JSON.parse(localStorage.getItem('sweetbio_stock') || '[]')
       const updated = stock.map(s => s.product_key === productKey ? { ...s, quantity, updated_at: new Date().toISOString() } : s)
-      localStorage.setItem('biosen_stock', JSON.stringify(updated))
+      localStorage.setItem('sweetbio_stock', JSON.stringify(updated))
       return updated.find(s => s.product_key === productKey)
     }
   },
@@ -232,14 +232,14 @@ export const stockApi = {
       }
     } else {
       // Fallback to localStorage
-      const stock = JSON.parse(localStorage.getItem('biosen_stock') || '[]')
+      const stock = JSON.parse(localStorage.getItem('sweetbio_stock') || '[]')
       for (const item of items) {
         const current = stock.find(s => s.product_key === item.product_key)
         if (current) {
           current.quantity = Math.max(0, current.quantity - item.qty)
         }
       }
-      localStorage.setItem('biosen_stock', JSON.stringify(stock))
+      localStorage.setItem('sweetbio_stock', JSON.stringify(stock))
     }
   }
 }
@@ -305,14 +305,14 @@ export const visitsApi = {
     } else {
       // Fallback: track in localStorage
       const today = new Date().toISOString().split('T')[0]
-      const visits = JSON.parse(localStorage.getItem('biosen_visits') || '[]')
+      const visits = JSON.parse(localStorage.getItem('sweetbio_visits') || '[]')
       const existing = visits.find(v => v.date === today)
       if (existing) {
         existing.count += 1
       } else {
         visits.push({ date: today, count: 1 })
       }
-      localStorage.setItem('biosen_visits', JSON.stringify(visits))
+      localStorage.setItem('sweetbio_visits', JSON.stringify(visits))
     }
   },
 
@@ -327,7 +327,7 @@ export const visitsApi = {
       return data.reverse()
     } else {
       // Fallback to localStorage
-      const visits = JSON.parse(localStorage.getItem('biosen_visits') || '[]')
+      const visits = JSON.parse(localStorage.getItem('sweetbio_visits') || '[]')
       return visits.slice(-7).reverse()
     }
   }

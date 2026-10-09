@@ -64,14 +64,14 @@ export default function Checkout({ onClose }) {
         await stockApi.deduct(stockDeductions)
       } catch {
         // Supabase not configured — save locally as fallback
-        const saved = JSON.parse(localStorage.getItem('biosen_orders_fallback') || '[]')
+        const saved = JSON.parse(localStorage.getItem('sweetbio_orders_fallback') || '[]')
         saved.unshift({ ...orderPayload, created_at: new Date().toISOString() })
-        localStorage.setItem('biosen_orders_fallback', JSON.stringify(saved))
+        localStorage.setItem('sweetbio_orders_fallback', JSON.stringify(saved))
       }
 
       // Build WhatsApp message
       const waText = encodeURIComponent(
-        `🌾 *Nouvelle commande Bio Sén*\n\n` +
+        `🌾 *Nouvelle commande SweetBio*\n\n` +
         `📦 *N° :* ${orderId}\n` +
         `👤 *Client :* ${form.name}\n` +
         `📱 *Tél :* ${form.phone}\n` +

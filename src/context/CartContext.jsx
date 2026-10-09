@@ -55,13 +55,13 @@ const INITIAL_STATE = { items: [], promo: null }
 export function CartProvider({ children }) {
   const [state, dispatch] = useReducer(cartReducer, INITIAL_STATE, () => {
     try {
-      const saved = localStorage.getItem('biosen_cart')
+      const saved = localStorage.getItem('sweetbio_cart')
       return saved ? JSON.parse(saved) : INITIAL_STATE
     } catch { return INITIAL_STATE }
   })
 
   useEffect(() => {
-    try { localStorage.setItem('biosen_cart', JSON.stringify(state)) } catch {}
+    try { localStorage.setItem('sweetbio_cart', JSON.stringify(state)) } catch {}
   }, [state])
 
   const subtotal = state.items.reduce((s, i) => s + i.total, 0)

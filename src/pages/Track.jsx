@@ -46,7 +46,7 @@ export default function Track() {
       try {
         found = await ordersApi.getById(id)
       } catch {
-        const local = JSON.parse(localStorage.getItem('biosen_orders_fallback') || '[]')
+        const local = JSON.parse(localStorage.getItem('sweetbio_orders_fallback') || '[]')
         found = local.find(o =>
           o.order_number?.toUpperCase() === id ||
           o.order_number?.toUpperCase() === raw
@@ -221,11 +221,11 @@ export default function Track() {
 
           {/* WhatsApp CTA */}
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Bonjour Bio Sén ! Je veux des informations sur ma commande ' + order.order_number)}`}
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent('Bonjour SweetBio ! Je veux des informations sur ma commande ' + order.order_number)}`}
             target="_blank" rel="noreferrer"
             className={styles.waCta}
           >
-            <FaWhatsapp size={16}/> Contacter Bio Sén sur WhatsApp
+            <FaWhatsapp size={16}/> Contacter SweetBio sur WhatsApp
           </a>
         </div>
       )}
@@ -245,7 +245,7 @@ export default function Track() {
             <div className={styles.helpVal}>siregaye990@gmail.com</div>
           </a>
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Bonjour%20Bio%20S%C3%A9n%20!`}
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Bonjour%20SweetBio%20!`}
             target="_blank" rel="noreferrer"
             className={`${styles.helpCard} ${styles.helpWa}`}
           >

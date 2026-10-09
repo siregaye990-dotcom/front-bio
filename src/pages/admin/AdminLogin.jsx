@@ -53,7 +53,7 @@ export default function AdminLogin() {
             <input
               id="email"
               type="email"
-              placeholder="admin@biosen.sn"
+              placeholder="admin@sweetbio.sn"
               value={email}
               onChange={e => setEmail(e.target.value)}
               autoComplete="email"
