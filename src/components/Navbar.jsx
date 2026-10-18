@@ -5,7 +5,6 @@ import { FiShoppingCart, FiSearch, FiUser, FiLogOut } from 'react-icons/fi'
 import { useCart } from '../context/CartContext'
 import { useAuth } from '../context/AuthContext'
 import CurrencySelector from './CurrencySelector'
-import LOGO_B64 from '../assets/logo_b64'
 import styles from './Navbar.module.css'
 
 export default function Navbar() {
@@ -20,7 +19,7 @@ export default function Navbar() {
   return (
     <nav className={styles.nav}>
       <Link to="/" className={styles.logo}>
-        <img src={LOGO_B64} alt="SweetBio" className={styles.logoImg}/>
+        <img src="/sweetbio-header-logo.jpg" alt="SweetBio" className={styles.logoImg}/>
         <span className={styles.brand}>SWEET<em>BIO</em></span>
       </Link>
       <div className={styles.tabs}>
