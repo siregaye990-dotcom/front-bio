@@ -98,7 +98,7 @@ export default function Footer() {
           </div>
           {/* WA CTA */}
           <a
-            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Bonjour%20Bio%20S%C3%A9n%20!%20Je%20voudrais%20commander.`}
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=Bonjour%20SweetBio%20!%20Je%20voudrais%20commander.`}
             target="_blank" rel="noreferrer"
             className={styles.waCta}
           >

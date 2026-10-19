@@ -9,13 +9,6 @@ import { ordersApi, stockApi } from '../lib/supabase'
 import { WHATSAPP_NUMBER } from '../utils/products'
 import styles from './Checkout.module.css'
 
-const PAY_OPTIONS = [
-  { id: 'Orange Money', icon: '🟠', label: 'Orange Money' },
-  { id: 'Wave',         icon: '🔵', label: 'Wave'         },
-  { id: 'Carte',        icon: '💳', label: 'Carte'        },
-  { id: 'Cash',         icon: '💵', label: 'Cash'         },
-]
-
 let orderCounter = 1005
 
 function generateOrderId() {
@@ -26,7 +19,6 @@ export default function Checkout({ onClose }) {
   const { items, total, promo, clear } = useCart()
   const { formatPrice } = useCurrency()
   const [form, setForm]   = useState({ name: '', phone: '', note: '' })
-  const [payMode, setPay] = useState('Orange Money')
   const [loading, setLoading] = useState(false)
   const [success, setSuccess] = useState(null) // { orderId, waUrl }
 
@@ -50,7 +42,7 @@ export default function Checkout({ onClose }) {
         address:        fullAddr,
         items:          itemsStr,
         total:          total,
-        payment_method: payMode,
+        payment_method: 'À convenir',
         status:         'pending',
         note:           form.note,
         promo_code:     promo?.code || null,
@@ -77,7 +69,7 @@ export default function Checkout({ onClose }) {
         `📱 *Tél :* ${form.phone}\n` +
         `🛒 *Produits :* ${itemsStr}\n` +
         `💰 *Total :* ${formatPrice(total)}\n` +
-        `💳 *Paiement :* ${payMode}` +
+        `💳 *Paiement :* À convenir` +
         (form.note ? `\n📝 *Note :* ${form.note}` : '') +
         `\n\n✅ Merci de traiter cette commande !`
       )
@@ -126,22 +118,6 @@ export default function Checkout({ onClose }) {
               <div className={styles.fg}>
                 <label>📱 WhatsApp *</label>
                 <input type="tel" placeholder="+221 77 000 00 00" value={form.phone} onChange={set('phone')}/>
-              </div>
-            </div>
-
-            <div className={styles.fg}>
-              <label>💳 Mode de paiement *</label>
-              <div className={styles.payOpts}>
-                {PAY_OPTIONS.map(p => (
-                  <div
-                    key={p.id}
-                    className={`${styles.payOpt} ${payMode === p.id ? styles.payOptActive : ''}`}
-                    onClick={() => setPay(p.id)}
-                  >
-                    <span className={styles.payIcon}>{p.icon}</span>
-                    <span className={styles.payLabel}>{p.label}</span>
-                  </div>
-                ))}
               </div>
             </div>
 

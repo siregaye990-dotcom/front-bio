@@ -1,6 +1,6 @@
 // src/components/Cart.jsx
 import React from 'react';
-import { FiLock, FiShield } from 'react-icons/fi';
+import { FiLock } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
 import toast from 'react-hot-toast';
 import { useCart } from '../context/CartContext';
@@ -76,11 +76,6 @@ export default function Cart({ onCheckout }) {
           Commander maintenant
         </button>
         
-        <div className={styles.secureNote}>
-          <FiShield size={11} />
-          <span>Orange Money · Wave · Carte</span>
-        </div>
-
         <a
           href={`https://wa.me/${WHATSAPP_NUMBER}?text=Bonjour%20Bio%20S%C3%A9n%2C%20je%20voudrais%20commander%20!`}
           target="_blank" rel="noreferrer"

@@ -19,7 +19,7 @@ export default function Navbar() {
   return (
     <nav className={styles.nav}>
       <Link to="/" className={styles.logo}>
-        <img src="/sweetbio-header-logo.jpg" alt="SweetBio" className={styles.logoImg}/>
+        <img src="/image.png" alt="SweetBio" className={styles.logoImg}/>
         <span className={styles.brand}>SWEET<em>BIO</em></span>
       </Link>
       <div className={styles.tabs}>

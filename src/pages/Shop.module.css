@@ -20,6 +20,7 @@
 .grid { display: grid; gap: 1.4rem; }
 .emptyShop { text-align: center; padding: 2rem; border: 1px dashed rgba(0,0,0,.12); border-radius: 16px; background: #fbfcfb; color: var(--muted); font-size: 13px; }
 .cardImg { width: 210px; flex-shrink: 0; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; min-height: 220px; }
+.productImage { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .bg0 { background: linear-gradient(135deg,#d4ead9,#b8ddc5); }
 .bg1 { background: linear-gradient(135deg,#fdf5dc,#f2e0a0); }
 .bg2 { background: linear-gradient(135deg,#dff0e2,#a8d9b4); }

@@ -274,7 +274,7 @@ export default function AdminDashboard() {
     doc.text(`Paiement : ${receipt.payment_method||'—'}`, 14, y + 14)
     doc.setFontSize(9); doc.setTextColor(150)
     doc.text("SweetBio — L'essence du Sénégal, naturellement", 14, 275)
-    doc.text('siregaye990@gmail.com  ·  +221 77 068 60 34', 14, 281)
+    doc.text('siregaye990@gmail.com  ·  +221 78 447 77 11', 14, 281)
     doc.save(`recu_${receipt.order_number}.pdf`)
     toast.success('🧾 Reçu PDF généré !')
   }
@@ -618,7 +618,7 @@ export default function AdminDashboard() {
                 <div className={styles.rcptRow}><span>Paiement</span><span>{receipt.payment_method||receipt.pay}</span></div>
                 <div className={styles.rcptGrand}><span>Total payé</span><span className={styles.rcptGrandVal}>{(receipt.total||0).toLocaleString('fr-FR')} FCFA</span></div>
               </div>
-              <p className={styles.rcptNote}>SweetBio — siregaye990@gmail.com · +221 77 068 60 34</p>
+              <p className={styles.rcptNote}>SweetBio — siregaye990@gmail.com · +221 78 447 77 11</p>
               <button className={styles.rcptPrintBtn} onClick={printReceipt}><FiDownload size={12}/> Télécharger PDF</button>
               <button className={styles.rcptCloseBtn} onClick={() => setReceipt(null)}>Fermer</button>
             </div>

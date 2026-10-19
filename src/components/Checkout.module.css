@@ -30,12 +30,6 @@
 .fg input, .fg textarea { width: 100%; padding: 10px 12px; border: 1.5px solid rgba(0,0,0,.1); border-radius: 7px; font-size: 13px; font-family: inherit; outline: none; color: var(--text); background: #fff; transition: all .2s; }
 .fg input:focus, .fg textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(26,107,53,.08); }
 .fg textarea { height: 70px; resize: none; }
-.payOpts { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .4rem; }
-.payOpt { flex: 1; min-width: 90px; border: 1.5px solid rgba(0,0,0,.1); border-radius: 7px; padding: 10px 5px; text-align: center; cursor: pointer; transition: all .2s; background: #fff; }
-.payOpt:hover { border-color: var(--green); }
-.payOptActive { border-color: var(--green); background: var(--green-3); box-shadow: 0 2px 8px rgba(26,107,53,.1); }
-.payIcon { font-size: 20px; display: block; margin-bottom: 3px; }
-.payLabel { font-size: 9px; font-weight: 600; color: var(--text); }
 .confirmBtn { width: 100%; background: var(--green); color: #fff; border: none; padding: 14px; border-radius: 7px; font-family: 'Jost',sans-serif; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; cursor: pointer; margin-top: 1rem; transition: all .25s; display: flex; align-items: center; justify-content: center; gap: 8px; }
 .confirmBtn:hover:not(:disabled) { background: var(--green-light); transform: translateY(-1px); }
 .confirmBtn:disabled { opacity: .6; cursor: not-allowed; }

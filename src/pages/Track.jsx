@@ -8,7 +8,7 @@ import {
 } from 'react-icons/md'
 import { useCurrency } from '../context/CurrencyContext'
 import { ordersApi } from '../lib/supabase'
-import { STATUS_MAP, WHATSAPP_NUMBER } from '../utils/products'
+import { CONTACT_PHONE, STATUS_MAP, WHATSAPP_NUMBER } from '../utils/products'
 import styles from './Track.module.css'
 
 const STEPS = [
@@ -234,10 +234,10 @@ export default function Track() {
       <div className={styles.help}>
         <h3 className={styles.helpTitle}>Besoin d'aide ?</h3>
         <div className={styles.helpGrid}>
-          <a href={`tel:${'+221770686034'}`} className={styles.helpCard}>
+          <a href={`tel:${CONTACT_PHONE.replace(/\s/g, '')}`} className={styles.helpCard}>
             <span className={styles.helpIcon}>📞</span>
             <div className={styles.helpLabel}>Téléphone</div>
-            <div className={styles.helpVal}>+221 77 068 60 34</div>
+            <div className={styles.helpVal}>{CONTACT_PHONE}</div>
           </a>
           <a href={`mailto:siregaye990@gmail.com`} className={styles.helpCard}>
             <span className={styles.helpIcon}>✉️</span>

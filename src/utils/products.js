@@ -116,6 +116,6 @@ export const STOCK_KEYS = [
   { key: 'Thiakry-1kg',  label: 'Thiakry 1kg',  max: 40  },
 ]
 
-export const WHATSAPP_NUMBER = '221770686034'
+export const WHATSAPP_NUMBER = '221784477711'
 export const CONTACT_EMAIL   = 'siregaye990@gmail.com'
-export const CONTACT_PHONE   = '+221 77 068 60 34'
+export const CONTACT_PHONE   = '+221 78 447 77 11'

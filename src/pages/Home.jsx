@@ -5,7 +5,6 @@ import { FiArrowRight, FiShoppingCart } from 'react-icons/fi'
 import { FaLeaf, FaTruck, FaStar, FaWhatsapp } from 'react-icons/fa'
 import { GiWheat, GiMortar } from 'react-icons/gi'
 import { MdBolt } from 'react-icons/md'
-import SACHETS_B64 from '../assets/sachets_b64'
 import { WHATSAPP_NUMBER, PRICES } from '../utils/products'
 import { visitsApi } from '../lib/supabase'
 import useProducts from '../hooks/useProducts'
@@ -53,14 +52,14 @@ export default function Home() {
       {/* HERO — UNIFIÉ & PREMIUM */}
       <section className={styles.hero}>
         <div className={styles.heroInner}>
-          <img src="/logo.jpg" alt="SweetBio" className={styles.heroLogoTop}/>
+          <img src="/image.png" alt="SweetBio" className={styles.heroLogoTop}/>
           <div className={styles.heroBadge}><FaLeaf size={10}/> 100% BIO · ORIGINE SÉNÉGAL</div>
           <h1 className={styles.heroH1}>Vos Céréales Ancestrales,<br/><em>Prêtes en un Clin d'Œil</em></h1>
           <p className={styles.heroP}>Arraw, Thiéré, Thiakry — céréales ancestrales sénégalaises précuites au sable filtré. Certifiées 100% biologiques, sans additifs, disponibles dès maintenant.</p>
           <button className={styles.heroBtnPrimary} onClick={goShop}>Commander maintenant <FiArrowRight size={13}/></button>
           
           <div className={styles.heroImageWrapper}>
-            <img src={SACHETS_B64} alt="Gamme SweetBio" className={styles.heroMainImageCentered}/>
+            <img src="/sweetbio-three-products.png" alt="Les produits SweetBio Arraw de mil, Thiéré de mil et Thiakry de mil" className={styles.heroMainImageCentered}/>
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 // src/pages/Shop.jsx
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { FiPlus, FiCheck, FiLock, FiShield, FiInfo } from 'react-icons/fi'
+import { FiPlus, FiCheck, FiLock, FiInfo } from 'react-icons/fi'
 import { FaLeaf, FaStar, FaWhatsapp } from 'react-icons/fa'
 import { GiMortar } from 'react-icons/gi'
 import toast from 'react-hot-toast'
@@ -130,13 +130,23 @@ export default function Shop() {
               {/* Image */}
               <div
                 className={`${styles.cardImg} ${styles[`bg${idx}`]}`}
-                style={product.imageUrl ? { backgroundImage: `url(${product.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
+                style={product.id !== 1 && product.imageUrl ? { backgroundImage: `url(${product.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center' } : {}}
               >
-                <div className={styles.imgPlaceholder}>
-                  {TAG_ICONS[idx]}
-                  <span className={styles.imgLabel}>{product.name}</span>
-                </div>
-                <span className={`${styles.badge} ${styles[`badge${idx}`]}`}>{product.badge}</span>
+                {product.id === 1 ? (
+                  <img src="/arrawdemil.jpg" alt="Arraw de mil SweetBio" className={styles.productImage}/>
+                ) : product.id === 2 ? (
+                  <img src="/thieredemil.jpg" alt="Thiéré de mil SweetBio" className={styles.productImage}/>
+                ) : product.id === 3 ? (
+                  <img src="/thiakrydemil.jpg" alt="Thiakry de mil SweetBio" className={styles.productImage}/>
+                ) : (
+                  <div className={styles.imgPlaceholder}>
+                    {TAG_ICONS[idx]}
+                    <span className={styles.imgLabel}>{product.name}</span>
+                  </div>
+                )}
+                <span className={`${styles.badge} ${styles[`badge${idx}`]}`}>
+                  {product.id === 1 ? 'Arraw' : product.id === 2 ? 'Thiere' : product.id === 3 ? 'Thiakry' : product.badge}
+                </span>
                 <button className={styles.detailLink} onClick={() => navigate(`/boutique/${product.slug}`)}>
                   <FiInfo size={9}/> Fiche détaillée
                 </button>
