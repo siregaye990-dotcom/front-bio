@@ -1,7 +1,6 @@
 // src/components/Navbar.jsx
-import { useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { FiShoppingCart, FiSearch, FiUser, FiLogOut } from 'react-icons/fi'
+import { FiShoppingCart, FiSearch } from 'react-icons/fi'
 import { useCart } from '../context/CartContext'
 import { useAuth } from '../context/AuthContext'
 import { useCurrency } from '../context/CurrencyContext'
@@ -14,9 +13,6 @@ export default function Navbar() {
   const location  = useLocation()
   const navigate  = useNavigate()
   const isActive  = (path) => location.pathname === path || (path !== '/' && location.pathname.startsWith(path))
-  const isDev = process.env.NODE_ENV !== 'production'
-  const showAdmin = isAdmin || location.pathname.startsWith('/admin') || isDev
-
   return (
     <nav className={styles.nav}>
       <Link to="/" className={styles.logo}>
@@ -26,7 +22,7 @@ export default function Navbar() {
         <Link to="/"         className={`${styles.tab} ${isActive('/')        && !isActive('/boutique') && !isActive('/suivi') && !isActive('/admin') ? styles.active : ''}`}>Accueil</Link>
         <Link to="/boutique" className={`${styles.tab} ${isActive('/boutique') ? styles.active : ''}`}>Boutique</Link>
         <Link to="/suivi"    className={`${styles.tab} ${isActive('/suivi')    ? styles.active : ''}`}>Suivi</Link>
-        {showAdmin && <Link to="/admin"    className={`${styles.tab} ${isActive('/admin')    ? styles.active : ''}`}>Admin</Link>}
+        {isAdmin && <Link to="/admin" className={`${styles.tab} ${isActive('/admin') ? styles.active : ''}`}>Admin</Link>}
       </div>
       <div className={styles.actions}>
         <div className={styles.currencyWrap}>
