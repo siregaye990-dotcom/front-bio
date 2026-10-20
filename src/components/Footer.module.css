@@ -226,7 +226,5 @@
 }
 
 .logoImg {
-  width: 44px; height: 44px; border-radius: 50%;
-  border: 2px solid var(--gold); object-fit: cover;
-  mix-blend-mode: screen; flex-shrink: 0;
+  display: block; width: 190px; max-width: 100%; height: auto;
 }

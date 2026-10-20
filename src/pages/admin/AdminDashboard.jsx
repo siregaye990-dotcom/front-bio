@@ -595,7 +595,7 @@ export default function AdminDashboard() {
           <div className={styles.receiptModal}>
             <div className={styles.rcptHeader}>
               <div>
-                <div className={styles.rcptBrand}>BIO <em>SÉN</em></div>
+                <img src="/sweetbio-logo.png" alt="SweetBio" className={styles.rcptBrandLogo}/>
                 <div className={styles.rcptBrandSub}>L'essence du Sénégal, naturellement</div>
               </div>
             </div>

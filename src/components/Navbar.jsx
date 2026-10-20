@@ -19,8 +19,7 @@ export default function Navbar() {
   return (
     <nav className={styles.nav}>
       <Link to="/" className={styles.logo}>
-        <img src="/image.png" alt="SweetBio" className={styles.logoImg}/>
-        <span className={styles.brand}>SWEET<em>BIO</em></span>
+        <img src="/sweetbio-logo.png" alt="SweetBio" className={styles.logoImg}/>
       </Link>
       <div className={styles.tabs}>
         <Link to="/"         className={`${styles.tab} ${isActive('/')        && !isActive('/boutique') && !isActive('/suivi') && !isActive('/admin') ? styles.active : ''}`}>Accueil</Link>

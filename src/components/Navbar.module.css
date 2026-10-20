@@ -23,21 +23,10 @@
 }
 
 .logoImg {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 2px solid rgba(232, 184, 75, 0.85);
-  object-fit: cover;
+  width: 174px;
+  height: auto;
+  object-fit: contain;
 }
-
-.brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: .08em;
-}
-.brand em { color: var(--gold-light); font-style: normal; }
 
 .tabs {
   display: flex;
@@ -179,8 +168,6 @@
 @media (max-width: 768px) {
   .nav { padding: 0 1rem; gap: .75rem; }
   .tabs { display: none; }
-  .brand { font-size: 18px; }
   .trackPill { display: none; }
   .loginBtn, .userBtn { padding: 8px 12px; font-size: 11px; }
 }
-

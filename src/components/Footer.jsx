@@ -15,8 +15,7 @@ export default function Footer() {
         {/* Brand */}
         <div className={styles.brand}>
           <div className={styles.logo}>
-            <div className={styles.logoCircle}>BIO<br /><em>SÉN</em></div>
-            <span className={styles.logoName}>BIO <em>SÉN</em></span>
+            <img src="/sweetbio-logo.png" alt="SweetBio" className={styles.logoImg}/>
           </div>
           <p className={styles.tagline}>L'essence du Sénégal, naturellement</p>
           <p className={styles.desc}>
