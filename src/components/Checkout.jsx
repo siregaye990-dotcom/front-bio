@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { FiCheck, FiX } from 'react-icons/fi'
 import { FaWhatsapp } from 'react-icons/fa'
 import toast from 'react-hot-toast'
+import jsPDF from 'jspdf'
 import { useCart } from '../context/CartContext'
 import { useCurrency } from '../context/CurrencyContext'
 import { ordersApi, stockApi } from '../lib/supabase'
@@ -17,10 +18,10 @@ function generateOrderId() {
 
 export default function Checkout({ onClose }) {
   const { items, total, promo, clear } = useCart()
-  const { formatPrice } = useCurrency()
+  const { formatPrice, currency } = useCurrency()
   const [form, setForm]   = useState({ name: '', phone: '', note: '' })
   const [loading, setLoading] = useState(false)
-  const [success, setSuccess] = useState(null) // { orderId, waUrl }
+  const [success, setSuccess] = useState(null)
 
   const set = (field) => (e) => setForm(f => ({ ...f, [field]: e.target.value }))
 
@@ -75,12 +76,74 @@ export default function Checkout({ onClose }) {
       )
 
       clear()
-      setSuccess({ orderId, waUrl: `https://wa.me/${WHATSAPP_NUMBER}?text=${waText}` })
+      setSuccess({
+        orderId,
+        waUrl: `https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`,
+        customer: { ...form, address: fullAddr },
+        items: items.map(item => ({ ...item })),
+        total,
+        currency,
+        createdAt: new Date().toISOString(),
+      })
       toast.success('Commande confirmée !')
     } catch (err) {
       toast.error('Erreur lors de la commande. Réessayez.')
     } finally {
       setLoading(false)
+    }
+  }
+
+  const downloadReceipt = () => {
+    try {
+      const doc = new jsPDF()
+      const date = new Date(success.createdAt).toLocaleString('fr-FR')
+      let y = 20
+
+      doc.setFontSize(20)
+      doc.setTextColor(26, 107, 53)
+      doc.text('SweetBio', 14, y)
+      y += 10
+      doc.setFontSize(14)
+      doc.setTextColor(35, 35, 35)
+      doc.text('Reçu de commande', 14, y)
+      y += 9
+      doc.setFontSize(10)
+      doc.text(`Commande : ${success.orderId}`, 14, y)
+      y += 6
+      doc.text(`Date : ${date}`, 14, y)
+      y += 10
+      doc.setFontSize(11)
+      doc.text(`Acheteur : ${success.customer.name}`, 14, y)
+      y += 7
+      doc.text(`Téléphone : ${success.customer.phone}`, 14, y)
+      if (success.customer.note) {
+        y += 7
+        doc.text(`Note : ${success.customer.note}`, 14, y, { maxWidth: 180 })
+      }
+      y += 10
+      doc.setFontSize(11)
+      doc.text('Articles', 14, y)
+      y += 7
+      doc.setFontSize(10)
+      success.items.forEach(item => {
+        const line = `${item.name} ${item.size} x${item.qty} — ${formatPrice(item.total, success.currency)}`
+        const wrapped = doc.splitTextToSize(line, 180)
+        if (y + wrapped.length * 6 > 275) {
+          doc.addPage()
+          y = 20
+        }
+        doc.text(wrapped, 14, y)
+        y += wrapped.length * 6
+      })
+      y += 4
+      doc.setFontSize(12)
+      doc.text(`Total : ${formatPrice(success.total, success.currency)}`, 14, y)
+      y += 8
+      doc.setFontSize(10)
+      doc.text('Paiement : à convenir', 14, y)
+      doc.save(`recu_sweetbio_${success.orderId.replace('#', '')}.pdf`)
+    } catch {
+      toast.error('Impossible de générer le reçu. Réessayez.')
     }
   }
 
@@ -138,8 +201,11 @@ export default function Checkout({ onClose }) {
             <div className={styles.successOid}>{success.orderId}</div>
             <p className={styles.successMsg}>
               Votre commande a été enregistrée avec succès.<br/>
-              Cliquez ci-dessous pour envoyer la confirmation WhatsApp.
+              Téléchargez votre reçu ou envoyez la confirmation WhatsApp.
             </p>
+            <button className={styles.downloadBtn} onClick={downloadReceipt}>
+              Télécharger mon reçu PDF
+            </button>
             <a
               href={success.waUrl}
               target="_blank" rel="noreferrer"
